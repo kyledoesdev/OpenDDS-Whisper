@@ -1,0 +1,51 @@
+#Template gitignore to be updated later.
+
+.env
+.env.backup
+.env.db
+.env.dusk.local
+.env.prod
+.env.testing
+npm-debug.log
+yarn-error.log
+/bootstrap/cache
+/githooks/*.sample
+/node_modules
+/vendor
+
+# C++ Compiled Object files, Precompiled Headers, Compiled Dynamic libraries, Compiled Static libraries
+# Executables
+*.d
+*.slo
+*.lo
+*.o
+*.obj
+*.gch
+*.pch
+*.so
+*.dylib
+*.dll
+*.mod
+*.smod
+*.lai
+*.la
+*.a
+*.lib
+*.exe
+*.out
+*.app
+
+#Java Compiled class files, Log Files, BlueJ files, Package Files
+# Compiled class file
+*.class
+*.log
+*.ctxt
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+
