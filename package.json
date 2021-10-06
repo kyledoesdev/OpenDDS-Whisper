@@ -25,6 +25,8 @@
     "express": "^4.17.1",
     "process": "^0.11.10",
     "querystring": "^0.2.1",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "socket.io": "^4.2.0",
+    "yelp-fusion": "^3.0.0"
   }
 }
