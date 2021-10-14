@@ -12,3 +12,4 @@ yarn-error.log
 /githooks/*.sample
 /node_modules
 /vendor
+/GUI/ishapes
