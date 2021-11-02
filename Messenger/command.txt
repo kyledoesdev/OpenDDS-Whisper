@@ -1,0 +1,13 @@
+    9  cd python3.6m
+   14  g++ -I/usr/include/python3.6m/ sample69.cpp -L/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu -lpython3.6 -o sample69
+   16  g++ -I/usr/include/python3.6m/ sample69.cpp -L/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu -lpython3.6 -o sample69
+   18  g++ -I/usr/include/python3.6m/ sample69.cpp -L/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu -lpython3.6 -o sample69
+   21  g++ -I/usr/include/python3.6m/ sample69.cpp -L/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu -lpython3.6 -o sample69
+   32  g++ -I/usr/include/python3.6m/ sample69.cpp -L/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu -lpython3.6 -o sample69
+   34  g++ -I/usr/include/python3.6m/ sample69.cpp -L/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu -lpython3.6 -o sample69
+   36  g++ -I/usr/include/python3.6m/ sample69.cpp -L/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu -lpython3.6 -o sample69
+   41  g++ -I/usr/include/python3.6m/ sample69.cpp -L/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu -lpython3.6 -o sample69
+   50  g++ -I/usr/include/python3.6m/ sample69.cpp -L/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu -lpython3.6 -o sample69
+   57  history | grep "python3.6m" .
+   58  history | grep "python3.6m"
+   59  history | grep "python3.6m" > command.txt
