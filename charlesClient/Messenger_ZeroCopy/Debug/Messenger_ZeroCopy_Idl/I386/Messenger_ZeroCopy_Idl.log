@@ -1,0 +1,9 @@
+﻿  Invoking ""C:\Users\lilc1\dev\OpenDDS-3.18.1\ACE_wrappers\bin\tao_idl" on MessengerTypeSupport.idl"
+  tao-idli_7WT3ea.cpp
+  MessengerC.cpp
+  MessengerS.cpp
+  MessengerTypeSupportC.cpp
+  MessengerTypeSupportImpl.cpp
+  MessengerTypeSupportS.cpp
+  Generating Code...
+  Messenger_ZeroCopy_Idl.vcxproj -> C:\Users\lilc1\dev\OpenDDS-3.18.1\DevGuideExamples\DCPS\Messenger_ZeroCopy\Messenger_ZeroCopy_Idld.dll
