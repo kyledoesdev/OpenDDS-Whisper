@@ -9,6 +9,8 @@ module Messenger {
   struct Message {
     string Name;
     string rating;
+    string reviews;
+    string distance;
     string subject;
     @key long subject_id;
     string address;

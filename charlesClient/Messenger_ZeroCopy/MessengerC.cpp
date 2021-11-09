@@ -48,6 +48,8 @@ TAO_BEGIN_VERSIONED_NAMESPACE_DECL
   return
     (strm << _tao_aggregate.Name.in ()) &&
     (strm << _tao_aggregate.rating.in ()) &&
+    (strm << _tao_aggregate.reviews.in ()) &&
+    (strm << _tao_aggregate.distance.in ()) &&
     (strm << _tao_aggregate.subject.in ()) &&
     (strm << _tao_aggregate.subject_id) &&
     (strm << _tao_aggregate.address.in ()) &&
@@ -64,6 +66,8 @@ TAO_BEGIN_VERSIONED_NAMESPACE_DECL
   return
     (strm >> _tao_aggregate.Name.out ()) &&
     (strm >> _tao_aggregate.rating.out ()) &&
+    (strm >> _tao_aggregate.reviews.out ()) &&
+    (strm >> _tao_aggregate.distance.out ()) &&
     (strm >> _tao_aggregate.subject.out ()) &&
     (strm >> _tao_aggregate.subject_id) &&
     (strm >> _tao_aggregate.address.out ()) &&

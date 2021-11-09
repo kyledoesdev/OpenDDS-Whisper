@@ -28,8 +28,8 @@
 // TAO_IDL - Generated from
 // C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_codegen.cpp:152
 
-#ifndef _TAO_IDL_MESSENGERC_RUSYPT_H_
-#define _TAO_IDL_MESSENGERC_RUSYPT_H_
+#ifndef _TAO_IDL_MESSENGERC_VMFWU0_H_
+#define _TAO_IDL_MESSENGERC_VMFWU0_H_
 
 #include /**/ "ace/pre.h"
 
@@ -112,6 +112,8 @@ namespace Messenger
     
     ::TAO::String_Manager Name;
     ::TAO::String_Manager rating;
+    ::TAO::String_Manager reviews;
+    ::TAO::String_Manager distance;
     ::TAO::String_Manager subject;
     ::CORBA::Long subject_id;
     ::TAO::String_Manager address;

@@ -72,6 +72,8 @@ DataReaderListenerImpl::on_data_available(DDS::DataReader_ptr reader)
     if (info[0].valid_data) {
       std::cout << messages[0].Name.in()    << std::endl
                 << "      " << messages[0].rating        << " Stars" << std::endl
+                << "      " << messages[0].reviews << " Reviews" << std::endl
+                << "      " << messages[0].distance << " Miles Away" << std::endl
                 << "      " << messages[0].address.in() << ", " << messages[0].city.in() << ", "
                 << messages[0].state.in()  << " " << messages[0].zip.in() << std::endl;
 

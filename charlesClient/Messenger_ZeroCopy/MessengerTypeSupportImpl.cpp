@@ -58,7 +58,7 @@ template<> const XTypes::TypeIdentifier & getMinimalTypeIdentifier<Messenger_Mes
   static XTypes::TypeIdentifier ti;
   ACE_GUARD_RETURN(ACE_Thread_Mutex, guard, TheServiceParticipant->get_static_xtypes_lock(), ti);
   if (ti.kind() == XTypes::TK_NONE) {
-    ti = XTypes::TypeIdentifier(XTypes::EK_MINIMAL,XTypes::EquivalenceHashWrapper(245, 239, 114, 163, 128, 19, 201, 157, 159, 44, 67, 226, 139, 83));
+    ti = XTypes::TypeIdentifier(XTypes::EK_MINIMAL,XTypes::EquivalenceHashWrapper(72, 255, 217, 227, 5, 125, 103, 194, 32, 118, 169, 162, 24, 53));
   }
   return ti;
 }
@@ -78,7 +78,7 @@ bool vread(OpenDDS::DCPS::ValueReader& value_reader,  ::Messenger::Message& valu
 {
   ACE_UNUSED_ARG(value_reader);
   ACE_UNUSED_ARG(value);
-  static const ListMemberHelper::Pair pairs[] = {{"Name",0},{"rating",1},{"subject",2},{"subject_id",3},{"address",4},{"city",5},{"state",6},{"zip",7},{"count",8},{0,0}};
+  static const ListMemberHelper::Pair pairs[] = {{"Name",0},{"rating",1},{"reviews",2},{"distance",3},{"subject",4},{"subject_id",5},{"address",6},{"city",7},{"state",8},{"zip",9},{"count",10},{0,0}};
   ListMemberHelper helper(pairs);
   if (!value_reader.begin_struct()) return false;
   XTypes::MemberId member_id;
@@ -104,15 +104,31 @@ bool vread(OpenDDS::DCPS::ValueReader& value_reader,  ::Messenger::Message& valu
       {
         String x;
         if (!value_reader.read_string(x)) return false;
-        value.subject = x.c_str();
+        value.reviews = x.c_str();
       }
       break;
     }
     case 3: {
-      if (!value_reader.read_int32(value.subject_id)) return false;
+      {
+        String x;
+        if (!value_reader.read_string(x)) return false;
+        value.distance = x.c_str();
+      }
       break;
     }
     case 4: {
+      {
+        String x;
+        if (!value_reader.read_string(x)) return false;
+        value.subject = x.c_str();
+      }
+      break;
+    }
+    case 5: {
+      if (!value_reader.read_int32(value.subject_id)) return false;
+      break;
+    }
+    case 6: {
       {
         String x;
         if (!value_reader.read_string(x)) return false;
@@ -120,7 +136,7 @@ bool vread(OpenDDS::DCPS::ValueReader& value_reader,  ::Messenger::Message& valu
       }
       break;
     }
-    case 5: {
+    case 7: {
       {
         String x;
         if (!value_reader.read_string(x)) return false;
@@ -128,7 +144,7 @@ bool vread(OpenDDS::DCPS::ValueReader& value_reader,  ::Messenger::Message& valu
       }
       break;
     }
-    case 6: {
+    case 8: {
       {
         String x;
         if (!value_reader.read_string(x)) return false;
@@ -136,7 +152,7 @@ bool vread(OpenDDS::DCPS::ValueReader& value_reader,  ::Messenger::Message& valu
       }
       break;
     }
-    case 7: {
+    case 9: {
       {
         String x;
         if (!value_reader.read_string(x)) return false;
@@ -144,7 +160,7 @@ bool vread(OpenDDS::DCPS::ValueReader& value_reader,  ::Messenger::Message& valu
       }
       break;
     }
-    case 8: {
+    case 10: {
       if (!value_reader.read_int32(value.count)) return false;
       break;
     }
@@ -171,6 +187,12 @@ void vwrite(OpenDDS::DCPS::ValueWriter& value_writer, const  ::Messenger::Messag
   value_writer.end_struct_member();
   value_writer.begin_struct_member("rating");
   value_writer.write_string(value.rating);
+  value_writer.end_struct_member();
+  value_writer.begin_struct_member("reviews");
+  value_writer.write_string(value.reviews);
+  value_writer.end_struct_member();
+  value_writer.begin_struct_member("distance");
+  value_writer.write_string(value.distance);
   value_writer.end_struct_member();
   value_writer.begin_struct_member("subject");
   value_writer.write_string(value.subject);
@@ -207,6 +229,8 @@ template<> void set_default( ::Messenger::Message& stru)
   ACE_UNUSED_ARG(stru);
   stru.Name = "";
   stru.rating = "";
+  stru.reviews = "";
+  stru.distance = "";
   stru.subject = "";
   stru.subject_id = 0;
   stru.address = "";
@@ -228,6 +252,10 @@ void serialized_size(const Encoding& encoding, size_t& size, const  ::Messenger:
   size += ACE_OS::strlen(stru.Name.in()) + 1;
   primitive_serialized_size_ulong(encoding, size);
   size += ACE_OS::strlen(stru.rating.in()) + 1;
+  primitive_serialized_size_ulong(encoding, size);
+  size += ACE_OS::strlen(stru.reviews.in()) + 1;
+  primitive_serialized_size_ulong(encoding, size);
+  size += ACE_OS::strlen(stru.distance.in()) + 1;
   primitive_serialized_size_ulong(encoding, size);
   size += ACE_OS::strlen(stru.subject.in()) + 1;
   primitive_serialized_size(encoding, size, stru.subject_id);
@@ -257,6 +285,8 @@ bool operator<<(Serializer& strm, const  ::Messenger::Message& stru)
   }
   return (strm << stru.Name.in())
     && (strm << stru.rating.in())
+    && (strm << stru.reviews.in())
+    && (strm << stru.distance.in())
     && (strm << stru.subject.in())
     && (strm << stru.subject_id)
     && (strm << stru.address.in())
@@ -292,6 +322,20 @@ bool operator>>(Serializer& strm,  ::Messenger::Message& stru)
     return true;
   }
   if (!(strm >> stru.rating.out())) {
+    return false;
+  }
+  if (encoding.xcdr_version() == Encoding::XCDR_VERSION_2 &&
+      strm.rpos() >= end_of_struct) {
+    return true;
+  }
+  if (!(strm >> stru.reviews.out())) {
+    return false;
+  }
+  if (encoding.xcdr_version() == Encoding::XCDR_VERSION_2 &&
+      strm.rpos() >= end_of_struct) {
+    return true;
+  }
+  if (!(strm >> stru.distance.out())) {
     return false;
   }
   if (encoding.xcdr_version() == Encoding::XCDR_VERSION_2 &&
@@ -569,15 +613,17 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
     static const std::pair<std::string, ACE_CDR::ULong> name_to_id_pairs[] = {
       std::make_pair("Name", 0),
       std::make_pair("rating", 1),
-      std::make_pair("subject", 2),
-      std::make_pair("subject_id", 3),
-      std::make_pair("address", 4),
-      std::make_pair("city", 5),
-      std::make_pair("state", 6),
-      std::make_pair("zip", 7),
-      std::make_pair("count", 8),
+      std::make_pair("reviews", 2),
+      std::make_pair("distance", 3),
+      std::make_pair("subject", 4),
+      std::make_pair("subject_id", 5),
+      std::make_pair("address", 6),
+      std::make_pair("city", 7),
+      std::make_pair("state", 8),
+      std::make_pair("zip", 9),
+      std::make_pair("count", 10),
     };
-    static const std::map<std::string, ACE_CDR::ULong> name_to_id_map(name_to_id_pairs, name_to_id_pairs + 9);
+    static const std::map<std::string, ACE_CDR::ULong> name_to_id_map(name_to_id_pairs, name_to_id_pairs + 11);
     std::map<std::string, ACE_CDR::ULong>::const_iterator it = name_to_id_map.find(field);
     if (it == name_to_id_map.end()) {
       throw std::runtime_error("Field " + OPENDDS_STRING(field) + " not found or its type is not supported (in struct ::Messenger::Message)");
@@ -595,6 +641,12 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
     }
     if (std::strcmp(field, "rating") == 0) {
       return typed.rating.in();
+    }
+    if (std::strcmp(field, "reviews") == 0) {
+      return typed.reviews.in();
+    }
+    if (std::strcmp(field, "distance") == 0) {
+      return typed.distance.in();
     }
     if (std::strcmp(field, "subject") == 0) {
       return typed.subject.in();
@@ -665,6 +717,36 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
       }
       if (!strm.skip(len)) {
         throw std::runtime_error("String 'rating' contents could not be skipped");
+      }
+    }
+    if (base_field == "reviews") {
+      TAO::String_Manager val;
+      if (!(strm >> val.out())) {
+        throw std::runtime_error("Field 'reviews' could not be deserialized");
+      }
+      return val;
+    } else {
+      ACE_CDR::ULong len;
+      if (!(strm >> len)) {
+        throw std::runtime_error("String 'reviews' length could not be deserialized");
+      }
+      if (!strm.skip(len)) {
+        throw std::runtime_error("String 'reviews' contents could not be skipped");
+      }
+    }
+    if (base_field == "distance") {
+      TAO::String_Manager val;
+      if (!(strm >> val.out())) {
+        throw std::runtime_error("Field 'distance' could not be deserialized");
+      }
+      return val;
+    } else {
+      ACE_CDR::ULong len;
+      if (!(strm >> len)) {
+        throw std::runtime_error("String 'distance' length could not be deserialized");
+      }
+      if (!strm.skip(len)) {
+        throw std::runtime_error("String 'distance' contents could not be skipped");
       }
     }
     if (base_field == "subject") {
@@ -779,6 +861,12 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
     if (std::strcmp(field, "rating") == 0) {
       return make_field_cmp(&T::rating, next);
     }
+    if (std::strcmp(field, "reviews") == 0) {
+      return make_field_cmp(&T::reviews, next);
+    }
+    if (std::strcmp(field, "distance") == 0) {
+      return make_field_cmp(&T::distance, next);
+    }
     if (std::strcmp(field, "subject") == 0) {
       return make_field_cmp(&T::subject, next);
     }
@@ -806,7 +894,7 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
 #ifndef OPENDDS_NO_MULTI_TOPIC
   const char** getFieldNames() const
   {
-    static const char* names[] = {"Name", "rating", "subject", "subject_id", "address", "city", "state", "zip", "count", 0};
+    static const char* names[] = {"Name", "rating", "reviews", "distance", "subject", "subject_id", "address", "city", "state", "zip", "count", 0};
     return names;
   }
 
@@ -817,6 +905,12 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
     }
     if (std::strcmp(field, "rating") == 0) {
       return &static_cast<const T*>(stru)->rating;
+    }
+    if (std::strcmp(field, "reviews") == 0) {
+      return &static_cast<const T*>(stru)->reviews;
+    }
+    if (std::strcmp(field, "distance") == 0) {
+      return &static_cast<const T*>(stru)->distance;
     }
     if (std::strcmp(field, "subject") == 0) {
       return &static_cast<const T*>(stru)->subject;
@@ -856,6 +950,14 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
     }
     if (std::strcmp(field, "rating") == 0) {
       static_cast<T*>(lhs)->rating = *static_cast<const TAO::String_Manager*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "reviews") == 0) {
+      static_cast<T*>(lhs)->reviews = *static_cast<const TAO::String_Manager*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "distance") == 0) {
+      static_cast<T*>(lhs)->distance = *static_cast<const TAO::String_Manager*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
       return;
     }
     if (std::strcmp(field, "subject") == 0) {
@@ -900,6 +1002,12 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
     }
     if (std::strcmp(field, "rating") == 0) {
       return 0 == ACE_OS::strcmp(static_cast<const T*>(lhs)->rating.in(), static_cast<const T*>(rhs)->rating.in());
+    }
+    if (std::strcmp(field, "reviews") == 0) {
+      return 0 == ACE_OS::strcmp(static_cast<const T*>(lhs)->reviews.in(), static_cast<const T*>(rhs)->reviews.in());
+    }
+    if (std::strcmp(field, "distance") == 0) {
+      return 0 == ACE_OS::strcmp(static_cast<const T*>(lhs)->distance.in(), static_cast<const T*>(rhs)->distance.in());
     }
     if (std::strcmp(field, "subject") == 0) {
       return 0 == ACE_OS::strcmp(static_cast<const T*>(lhs)->subject.in(), static_cast<const T*>(rhs)->subject.in());
@@ -954,12 +1062,12 @@ namespace OpenDDS { namespace DCPS {
 namespace {
 XTypes::TypeObject to0()
 {
-  return XTypes::TypeObject(XTypes::MinimalTypeObject(XTypes::MinimalStructType(XTypes::IS_APPENDABLE,XTypes::MinimalStructHeader(XTypes::TypeIdentifier(XTypes::TK_NONE), XTypes::MinimalTypeDetail()),XTypes::MinimalStructMemberSeq().append(XTypes::MinimalStructMember(XTypes::CommonStructMember(0,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(73, 238, 48, 135))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(1,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(44, 85, 4, 171))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(2,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(181, 227, 55, 78))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(3,XTypes::TRY_CONSTRUCT1 | XTypes::IS_KEY,XTypes::TypeIdentifier(XTypes::TK_INT32)),XTypes::MinimalMemberDetail(255, 171, 161, 209))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(4,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(136, 77, 152, 4))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(5,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(78, 213, 210, 234))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(6,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(158, 211, 158, 46))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(7,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(173, 205, 189, 121))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(8,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TK_INT32)),XTypes::MinimalMemberDetail(226, 148, 42, 4))))));
+  return XTypes::TypeObject(XTypes::MinimalTypeObject(XTypes::MinimalStructType(XTypes::IS_APPENDABLE,XTypes::MinimalStructHeader(XTypes::TypeIdentifier(XTypes::TK_NONE), XTypes::MinimalTypeDetail()),XTypes::MinimalStructMemberSeq().append(XTypes::MinimalStructMember(XTypes::CommonStructMember(0,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(73, 238, 48, 135))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(1,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(44, 85, 4, 171))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(2,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(116, 220, 177, 206))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(3,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(167, 78, 201, 197))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(4,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(181, 227, 55, 78))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(5,XTypes::TRY_CONSTRUCT1 | XTypes::IS_KEY,XTypes::TypeIdentifier(XTypes::TK_INT32)),XTypes::MinimalMemberDetail(255, 171, 161, 209))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(6,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(136, 77, 152, 4))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(7,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(78, 213, 210, 234))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(8,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(158, 211, 158, 46))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(9,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(173, 205, 189, 121))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(10,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TK_INT32)),XTypes::MinimalMemberDetail(226, 148, 42, 4))))));
 }
 XTypes::TypeMap get_minimal_type_map_private()
 {
   XTypes::TypeMap tm;
-  tm[XTypes::TypeIdentifier(XTypes::EK_MINIMAL,XTypes::EquivalenceHashWrapper(245, 239, 114, 163, 128, 19, 201, 157, 159, 44, 67, 226, 139, 83))] = to0();
+  tm[XTypes::TypeIdentifier(XTypes::EK_MINIMAL,XTypes::EquivalenceHashWrapper(72, 255, 217, 227, 5, 125, 103, 194, 32, 118, 169, 162, 24, 53))] = to0();
   return tm;
 }
 }
