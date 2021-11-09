@@ -128,7 +128,8 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\Messenger_ZeroCopy_Publisher\I386\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">publisher</TargetName>
-    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"></LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    </LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutDir)</LocalDebuggerWorkingDirectory>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
@@ -137,7 +138,8 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\Messenger_ZeroCopy_Publisher\I386\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">publisher</TargetName>
-    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"></LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    </LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutDir)</LocalDebuggerWorkingDirectory>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
@@ -146,7 +148,8 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Debug\Messenger_ZeroCopy_Publisher\AMD64\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">publisher</TargetName>
-    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    </LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)</LocalDebuggerWorkingDirectory>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
@@ -155,7 +158,8 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Release\Messenger_ZeroCopy_Publisher\AMD64\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">publisher</TargetName>
-    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    </LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)</LocalDebuggerWorkingDirectory>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
@@ -164,7 +168,8 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Debug\Messenger_ZeroCopy_Publisher\ARM\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">publisher</TargetName>
-    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'"></LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    </LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(OutDir)</LocalDebuggerWorkingDirectory>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" />
@@ -173,7 +178,8 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Release\Messenger_ZeroCopy_Publisher\ARM\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">publisher</TargetName>
-    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|ARM'"></LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    </LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(OutDir)</LocalDebuggerWorkingDirectory>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" />
@@ -182,7 +188,8 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">Debug\Messenger_ZeroCopy_Publisher\ARM64\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">true</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">publisher</TargetName>
-    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'"></LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    </LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">$(OutDir)</LocalDebuggerWorkingDirectory>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" />
@@ -191,11 +198,16 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">Release\Messenger_ZeroCopy_Publisher\ARM64\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">false</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">publisher</TargetName>
-    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'"></LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    </LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">$(OutDir)</LocalDebuggerWorkingDirectory>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Users\lilc1\dev\libcurl\curl\builds\libcurl-vc-x86-release-static-ipv6-sspi-schannel\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\lilc1\dev\libcurl\curl\builds\libcurl-vc-x86-release-static-ipv6-sspi-schannel\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
@@ -210,7 +222,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ACE_ROOT);$(TAO_ROOT);..\..\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_DEBUG;WIN32;_CONSOLE;_CRT_NONSTDC_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;MPC_LIB_MODIFIER=&quot;d&quot;;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;WIN32;_CONSOLE;_CRT_NONSTDC_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;MPC_LIB_MODIFIER="d";CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -226,15 +238,15 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ACEd.lib;TAOd.lib;TAO_AnyTypeCoded.lib;TAO_PortableServerd.lib;TAO_CodecFactoryd.lib;TAO_PId.lib;TAO_BiDirGIOPd.lib;OpenDDS_Dcpsd.lib;OpenDDS_InfoRepoDiscoveryd.lib;OpenDDS_Tcpd.lib;Messenger_ZeroCopy_Idld.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ACEd.lib;TAOd.lib;TAO_AnyTypeCoded.lib;TAO_PortableServerd.lib;TAO_CodecFactoryd.lib;TAO_PId.lib;TAO_BiDirGIOPd.lib;OpenDDS_Dcpsd.lib;OpenDDS_InfoRepoDiscoveryd.lib;OpenDDS_Tcpd.lib;Messenger_ZeroCopy_Idld.lib;iphlpapi.lib;C:\Users\lilc1\dev\libcurl\curl\builds\libcurl-vc-x86-release-static-ipv6-sspi-schannel\lib\libcurl_a.lib;Ws2_32.lib;Wldap32.lib;Crypt32.lib;Normaliz.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)publisher.exe</OutputFile>
       <AdditionalLibraryDirectories>.;$(ACE_ROOT)\lib;..\..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>$(OutDir)\publisher_exe.pdb</ProgramDatabaseFile>
     </Link>
-<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+    <!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
      Check if msbuild has any support for a custom post-cleaning step
  -->
-<!-- No known equivalent for DeploymentTool in vc10:
+    <!-- No known equivalent for DeploymentTool in vc10:
 -->
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -271,10 +283,10 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
     </Link>
-<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+    <!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
      Check if msbuild has any support for a custom post-cleaning step
  -->
-<!-- No known equivalent for DeploymentTool in vc10:
+    <!-- No known equivalent for DeploymentTool in vc10:
 -->
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -290,7 +302,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ACE_ROOT);$(TAO_ROOT);..\..\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_DEBUG;WIN32;_CONSOLE;_CRT_NONSTDC_NO_WARNINGS;_AMD64_;_WIN64;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;MPC_LIB_MODIFIER=&quot;d&quot;;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;WIN32;_CONSOLE;_CRT_NONSTDC_NO_WARNINGS;_AMD64_;_WIN64;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;MPC_LIB_MODIFIER="d";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -310,18 +322,18 @@
       <OutputFile>$(OutDir)publisher.exe</OutputFile>
       <AdditionalLibraryDirectories>.;$(ACE_ROOT)\lib;..\..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>$(OutDir)\publisher_exe.pdb</ProgramDatabaseFile>
-<!--
+      <!--
   Though we can set TargetMachine explicitly, VC++
   can figure it out by project type. We don't need
   to set it by ourselves.
 -->
-<!--      <TargetMachine>0</TargetMachine>-->
+      <!--      <TargetMachine>0</TargetMachine>-->
       <AdditionalOptions>/machine:AMD64 %(AdditionalOptions)</AdditionalOptions>
     </Link>
-<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+    <!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
      Check if msbuild has any support for a custom post-cleaning step
  -->
-<!-- No known equivalent for DeploymentTool in vc10:
+    <!-- No known equivalent for DeploymentTool in vc10:
 -->
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -357,18 +369,18 @@
       <AdditionalLibraryDirectories>.;$(ACE_ROOT)\lib;..\..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-<!--
+      <!--
   Though we can set TargetMachine explicitly, VC++
   can figure it out by project type. We don't need
   to set it by ourselves.
 -->
-<!--      <TargetMachine>0</TargetMachine>-->
+      <!--      <TargetMachine>0</TargetMachine>-->
       <AdditionalOptions>/machine:AMD64 %(AdditionalOptions)</AdditionalOptions>
     </Link>
-<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+    <!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
      Check if msbuild has any support for a custom post-cleaning step
  -->
-<!-- No known equivalent for DeploymentTool in vc10:
+    <!-- No known equivalent for DeploymentTool in vc10:
 -->
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
@@ -384,7 +396,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ACE_ROOT);$(TAO_ROOT);..\..\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_DEBUG;WIN32;_CONSOLE;_CRT_NONSTDC_NO_WARNINGS;_ARM_;_ARM;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;MPC_LIB_MODIFIER=&quot;d&quot;;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;WIN32;_CONSOLE;_CRT_NONSTDC_NO_WARNINGS;_ARM_;_ARM;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;MPC_LIB_MODIFIER="d";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -404,18 +416,18 @@
       <OutputFile>$(OutDir)publisher.exe</OutputFile>
       <AdditionalLibraryDirectories>.;$(ACE_ROOT)\lib;..\..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>$(OutDir)\publisher_exe.pdb</ProgramDatabaseFile>
-<!--
+      <!--
   Though we can set TargetMachine explicitly, VC++
   can figure it out by project type. We don't need
   to set it by ourselves.
 -->
-<!--      <TargetMachine>0</TargetMachine>-->
+      <!--      <TargetMachine>0</TargetMachine>-->
       <AdditionalOptions>/machine:ARM %(AdditionalOptions)</AdditionalOptions>
     </Link>
-<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+    <!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
      Check if msbuild has any support for a custom post-cleaning step
  -->
-<!-- No known equivalent for DeploymentTool in vc10:
+    <!-- No known equivalent for DeploymentTool in vc10:
 -->
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
@@ -451,18 +463,18 @@
       <AdditionalLibraryDirectories>.;$(ACE_ROOT)\lib;..\..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-<!--
+      <!--
   Though we can set TargetMachine explicitly, VC++
   can figure it out by project type. We don't need
   to set it by ourselves.
 -->
-<!--      <TargetMachine>0</TargetMachine>-->
+      <!--      <TargetMachine>0</TargetMachine>-->
       <AdditionalOptions>/machine:ARM %(AdditionalOptions)</AdditionalOptions>
     </Link>
-<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+    <!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
      Check if msbuild has any support for a custom post-cleaning step
  -->
-<!-- No known equivalent for DeploymentTool in vc10:
+    <!-- No known equivalent for DeploymentTool in vc10:
 -->
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
@@ -478,7 +490,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ACE_ROOT);$(TAO_ROOT);..\..\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_DEBUG;WIN32;_CONSOLE;_CRT_NONSTDC_NO_WARNINGS;_ARM64_;_ARM64;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;MPC_LIB_MODIFIER=&quot;d&quot;;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;WIN32;_CONSOLE;_CRT_NONSTDC_NO_WARNINGS;_ARM64_;_ARM64;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;MPC_LIB_MODIFIER="d";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -498,18 +510,18 @@
       <OutputFile>$(OutDir)publisher.exe</OutputFile>
       <AdditionalLibraryDirectories>.;$(ACE_ROOT)\lib;..\..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>$(OutDir)\publisher_exe.pdb</ProgramDatabaseFile>
-<!--
+      <!--
   Though we can set TargetMachine explicitly, VC++
   can figure it out by project type. We don't need
   to set it by ourselves.
 -->
-<!--      <TargetMachine>0</TargetMachine>-->
+      <!--      <TargetMachine>0</TargetMachine>-->
       <AdditionalOptions>/machine:ARM64 %(AdditionalOptions)</AdditionalOptions>
     </Link>
-<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+    <!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
      Check if msbuild has any support for a custom post-cleaning step
  -->
-<!-- No known equivalent for DeploymentTool in vc10:
+    <!-- No known equivalent for DeploymentTool in vc10:
 -->
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
@@ -545,18 +557,18 @@
       <AdditionalLibraryDirectories>.;$(ACE_ROOT)\lib;..\..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-<!--
+      <!--
   Though we can set TargetMachine explicitly, VC++
   can figure it out by project type. We don't need
   to set it by ourselves.
 -->
-<!--      <TargetMachine>0</TargetMachine>-->
+      <!--      <TargetMachine>0</TargetMachine>-->
       <AdditionalOptions>/machine:ARM64 %(AdditionalOptions)</AdditionalOptions>
     </Link>
-<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+    <!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
      Check if msbuild has any support for a custom post-cleaning step
  -->
-<!-- No known equivalent for DeploymentTool in vc10:
+    <!-- No known equivalent for DeploymentTool in vc10:
 -->
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -567,13 +579,23 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataReaderListenerImpl.h" />
+    <ClInclude Include="MessengerC.h" />
+    <ClInclude Include="MessengerS.h" />
+    <ClInclude Include="MessengerTypeSupportC.h" />
+    <ClInclude Include="MessengerTypeSupportImpl.h" />
+    <ClInclude Include="MessengerTypeSupportS.h" />
     <ClInclude Include="Messenger_ZeroCopy_export.h" />
+    <ClInclude Include="json.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Messenger_ZeroCopy.mpc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="run_test.pl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MessengerC.inl" />
+    <None Include="MessengerTypeSupportC.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

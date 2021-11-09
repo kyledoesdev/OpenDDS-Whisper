@@ -20,12 +20,65 @@
 #include "json.hpp"
 #include <string>
 
+#include <cstdint>
+#include <iostream>
+#include <memory>
+#include "curl/curl.h"
+//#include <json/json.h>
+
 using json = nlohmann::json;
+
+namespace
+{
+    std::size_t callback(
+        const char* in,
+        std::size_t size,
+        std::size_t num,
+        std::string* out)
+    {
+        const std::size_t totalBytes(size * num);
+        out->append(in, totalBytes);
+        return totalBytes;
+    }
+}
 
 
 int
 ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 {
+    std::string searchURL = "https://api.yelp.com/v3/businesses/search?term=";
+    std::string in;
+    std::cout << "Please input a search term\n";
+    std::cin >> in;
+    searchURL = searchURL + in;
+    std::cout << "Please input a latitude (ex 39.7029)\n";
+    std::cin >> in;
+    searchURL = searchURL + "&latitude=" + in;
+    std::cout << "Please input a longitude (ex 75.1118)\n";
+    std::cin >> in;
+    searchURL = searchURL + "&longitude=" + in;
+    // std::cout << searchURL;
+    
+    CURL* req = curl_easy_init();
+    CURLcode res;
+    if (req)
+    {
+        curl_easy_setopt(req, CURLOPT_URL, searchURL.c_str());
+        struct curl_slist* headers = NULL;
+        headers = curl_slist_append(headers, "Content-Type: application/json");
+        headers = curl_slist_append(headers, "Authorization: Bearer 8uZBQKRUxpFZJG65jmtQCgCVwzsDjwYHi06qI1wvuPi1PCdKadGQKKcYhOpvl5ITMDHUScQHZ62xH19F9LB52UH0UJWQ_tFUqDyC88-PUjoT1nLRmGLHQ1t2t0lyYXYx");
+        curl_easy_setopt(req, CURLOPT_HTTPHEADER, headers);
+        curl_easy_setopt(req, CURLOPT_FOLLOWLOCATION, 1L);
+        res = curl_easy_perform(req);
+        if (res != CURLE_OK)
+        {
+            fprintf(stderr, "curl_easy_operation() failed : %s\n", curl_easy_strerror(res));
+        }
+    }
+    curl_easy_cleanup(req);
+
+    //return 0;
+    //YER
   try {
     // Initialize DomainParticipantFactory
     DDS::DomainParticipantFactory_var dpf =
@@ -147,16 +200,19 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
         {"is_closed" , false},
         {"url" , "https://www.yelp.com/biz/the-cubby-hole-moorestown?adjust_creative=xrwWeZAOZ3b80xo5ddg0Og&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=xrwWeZAOZ3b80xo5ddg0Og"},
         {"review_count" , 194},
-        {"rating", 4.5},
+        {"rating", "4.5"},
         {"address1", "37 E Main St"},
         {"city" , "Moorestown"},
         {"zip_code" , "08057"},
         {"country" , "US"},
         {"state" , "NJ"},
+        {"distance", 10391.991289828224 },
     };
 
     std::string businessName = yelpJson.value("name", "oops");
     const char* myBusinessName = businessName.c_str();
+    std::string BusinessRating = yelpJson.value("rating", "0");
+    const char* myBusinessRating = BusinessRating.c_str();
     std::string BusinessAlias = yelpJson.value("alias", "oops");
     const char* myBusinessAlias = BusinessAlias.c_str();
     int reviewCount = yelpJson.value("review_count", 0);
@@ -175,6 +231,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
     message.subject_id = 99;
 
     message.Name       = myBusinessName;
+    message.rating = myBusinessRating;
     message.subject    = CORBA::string_dup("OpenDDS Yelp API Testing Ideas");
     message.address = myBusinessAddress1;
     message.city = myBusinessCity;

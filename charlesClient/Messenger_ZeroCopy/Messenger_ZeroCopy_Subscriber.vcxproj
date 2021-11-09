@@ -576,6 +576,10 @@
   <ItemGroup>
     <None Include="run_test.pl" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="MessengerC.inl" />
+    <None Include="MessengerTypeSupportC.inl" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -16,6 +16,10 @@
     <Filter Include="Test Files">
       <UniqueIdentifier>{4190FD01-FECA-1BAD-4EB3-0D100B4C77B2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Inline Files">
+      <UniqueIdentifier>{763028EF-FECA-1BAD-4EB3-0D100B4C77B2}</UniqueIdentifier>
+      <Extensions>i;ipp;inl</Extensions>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataReaderListenerImpl.cpp">
@@ -38,6 +42,14 @@
   <ItemGroup>
     <None Include="run_test.pl">
       <Filter>Test Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MessengerC.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="MessengerTypeSupportC.inl">
+      <Filter>Inline Files</Filter>
     </None>
   </ItemGroup>
 </Project>

@@ -128,8 +128,7 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\Messenger_ZeroCopy_Idl\I386\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Messenger_ZeroCopy_Idld</TargetName>
-    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    </LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"></LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutDir)</LocalDebuggerWorkingDirectory>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
@@ -138,8 +137,7 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\Messenger_ZeroCopy_Idl\I386\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Messenger_ZeroCopy_Idl</TargetName>
-    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    </LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"></LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutDir)</LocalDebuggerWorkingDirectory>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
@@ -148,8 +146,7 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Debug\Messenger_ZeroCopy_Idl\AMD64\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Messenger_ZeroCopy_Idld</TargetName>
-    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    </LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)</LocalDebuggerWorkingDirectory>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
@@ -158,8 +155,7 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Release\Messenger_ZeroCopy_Idl\AMD64\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Messenger_ZeroCopy_Idl</TargetName>
-    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    </LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)</LocalDebuggerWorkingDirectory>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
@@ -168,8 +164,7 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Debug\Messenger_ZeroCopy_Idl\ARM\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Messenger_ZeroCopy_Idld</TargetName>
-    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
-    </LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'"></LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(OutDir)</LocalDebuggerWorkingDirectory>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" />
@@ -178,8 +173,7 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Release\Messenger_ZeroCopy_Idl\ARM\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Messenger_ZeroCopy_Idl</TargetName>
-    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
-    </LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|ARM'"></LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(OutDir)</LocalDebuggerWorkingDirectory>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" />
@@ -188,8 +182,7 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">Debug\Messenger_ZeroCopy_Idl\ARM64\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">true</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">Messenger_ZeroCopy_Idld</TargetName>
-    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
-    </LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'"></LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">$(OutDir)</LocalDebuggerWorkingDirectory>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" />
@@ -198,8 +191,7 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">Release\Messenger_ZeroCopy_Idl\ARM64\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">false</LinkIncremental>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">Messenger_ZeroCopy_Idl</TargetName>
-    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
-    </LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'"></LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">$(OutDir)</LocalDebuggerWorkingDirectory>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'" />
@@ -218,7 +210,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ACE_ROOT);$(TAO_ROOT);..\..\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>MESSENGER_ZEROCOPY_BUILD_DLL;_DEBUG;WIN32;_WINDOWS;_CRT_NONSTDC_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;MPC_LIB_MODIFIER="d";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MESSENGER_ZEROCOPY_BUILD_DLL;_DEBUG;WIN32;_WINDOWS;_CRT_NONSTDC_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;MPC_LIB_MODIFIER=&quot;d&quot;;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -239,10 +231,10 @@
       <ProgramDatabaseFile>$(OutDir)\Messenger_ZeroCopy_Idld_dll.pdb</ProgramDatabaseFile>
       <ImportLibrary>.\Messenger_ZeroCopy_Idld.lib</ImportLibrary>
     </Link>
-    <!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
      Check if msbuild has any support for a custom post-cleaning step
  -->
-    <!-- No known equivalent for DeploymentTool in vc10:
+<!-- No known equivalent for DeploymentTool in vc10:
 -->
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -279,10 +271,10 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <ImportLibrary>.\Messenger_ZeroCopy_Idl.lib</ImportLibrary>
     </Link>
-    <!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
      Check if msbuild has any support for a custom post-cleaning step
  -->
-    <!-- No known equivalent for DeploymentTool in vc10:
+<!-- No known equivalent for DeploymentTool in vc10:
 -->
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -298,7 +290,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ACE_ROOT);$(TAO_ROOT);..\..\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>MESSENGER_ZEROCOPY_BUILD_DLL;_DEBUG;WIN32;_WINDOWS;_CRT_NONSTDC_NO_WARNINGS;_AMD64_;_WIN64;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;MPC_LIB_MODIFIER="d";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MESSENGER_ZEROCOPY_BUILD_DLL;_DEBUG;WIN32;_WINDOWS;_CRT_NONSTDC_NO_WARNINGS;_AMD64_;_WIN64;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;MPC_LIB_MODIFIER=&quot;d&quot;;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -318,18 +310,18 @@
       <AdditionalLibraryDirectories>.;$(ACE_ROOT)\lib;..\..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>$(OutDir)\Messenger_ZeroCopy_Idld_dll.pdb</ProgramDatabaseFile>
       <ImportLibrary>.\Messenger_ZeroCopy_Idld.lib</ImportLibrary>
-      <!--
+<!--
   Though we can set TargetMachine explicitly, VC++
   can figure it out by project type. We don't need
   to set it by ourselves.
 -->
-      <!--      <TargetMachine>0</TargetMachine>-->
+<!--      <TargetMachine>0</TargetMachine>-->
       <AdditionalOptions>/machine:AMD64 %(AdditionalOptions)</AdditionalOptions>
     </Link>
-    <!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
      Check if msbuild has any support for a custom post-cleaning step
  -->
-    <!-- No known equivalent for DeploymentTool in vc10:
+<!-- No known equivalent for DeploymentTool in vc10:
 -->
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -365,18 +357,18 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <ImportLibrary>.\Messenger_ZeroCopy_Idl.lib</ImportLibrary>
-      <!--
+<!--
   Though we can set TargetMachine explicitly, VC++
   can figure it out by project type. We don't need
   to set it by ourselves.
 -->
-      <!--      <TargetMachine>0</TargetMachine>-->
+<!--      <TargetMachine>0</TargetMachine>-->
       <AdditionalOptions>/machine:AMD64 %(AdditionalOptions)</AdditionalOptions>
     </Link>
-    <!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
      Check if msbuild has any support for a custom post-cleaning step
  -->
-    <!-- No known equivalent for DeploymentTool in vc10:
+<!-- No known equivalent for DeploymentTool in vc10:
 -->
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
@@ -392,7 +384,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ACE_ROOT);$(TAO_ROOT);..\..\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>MESSENGER_ZEROCOPY_BUILD_DLL;_DEBUG;WIN32;_WINDOWS;_CRT_NONSTDC_NO_WARNINGS;_ARM_;_ARM;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;MPC_LIB_MODIFIER="d";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MESSENGER_ZEROCOPY_BUILD_DLL;_DEBUG;WIN32;_WINDOWS;_CRT_NONSTDC_NO_WARNINGS;_ARM_;_ARM;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;MPC_LIB_MODIFIER=&quot;d&quot;;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -412,18 +404,18 @@
       <AdditionalLibraryDirectories>.;$(ACE_ROOT)\lib;..\..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>$(OutDir)\Messenger_ZeroCopy_Idld_dll.pdb</ProgramDatabaseFile>
       <ImportLibrary>.\Messenger_ZeroCopy_Idld.lib</ImportLibrary>
-      <!--
+<!--
   Though we can set TargetMachine explicitly, VC++
   can figure it out by project type. We don't need
   to set it by ourselves.
 -->
-      <!--      <TargetMachine>0</TargetMachine>-->
+<!--      <TargetMachine>0</TargetMachine>-->
       <AdditionalOptions>/machine:ARM %(AdditionalOptions)</AdditionalOptions>
     </Link>
-    <!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
      Check if msbuild has any support for a custom post-cleaning step
  -->
-    <!-- No known equivalent for DeploymentTool in vc10:
+<!-- No known equivalent for DeploymentTool in vc10:
 -->
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
@@ -459,18 +451,18 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <ImportLibrary>.\Messenger_ZeroCopy_Idl.lib</ImportLibrary>
-      <!--
+<!--
   Though we can set TargetMachine explicitly, VC++
   can figure it out by project type. We don't need
   to set it by ourselves.
 -->
-      <!--      <TargetMachine>0</TargetMachine>-->
+<!--      <TargetMachine>0</TargetMachine>-->
       <AdditionalOptions>/machine:ARM %(AdditionalOptions)</AdditionalOptions>
     </Link>
-    <!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
      Check if msbuild has any support for a custom post-cleaning step
  -->
-    <!-- No known equivalent for DeploymentTool in vc10:
+<!-- No known equivalent for DeploymentTool in vc10:
 -->
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
@@ -486,7 +478,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>$(ACE_ROOT);$(TAO_ROOT);..\..\..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>MESSENGER_ZEROCOPY_BUILD_DLL;_DEBUG;WIN32;_WINDOWS;_CRT_NONSTDC_NO_WARNINGS;_ARM64_;_ARM64;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;MPC_LIB_MODIFIER="d";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MESSENGER_ZEROCOPY_BUILD_DLL;_DEBUG;WIN32;_WINDOWS;_CRT_NONSTDC_NO_WARNINGS;_ARM64_;_ARM64;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;MPC_LIB_MODIFIER=&quot;d&quot;;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -506,18 +498,18 @@
       <AdditionalLibraryDirectories>.;$(ACE_ROOT)\lib;..\..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>$(OutDir)\Messenger_ZeroCopy_Idld_dll.pdb</ProgramDatabaseFile>
       <ImportLibrary>.\Messenger_ZeroCopy_Idld.lib</ImportLibrary>
-      <!--
+<!--
   Though we can set TargetMachine explicitly, VC++
   can figure it out by project type. We don't need
   to set it by ourselves.
 -->
-      <!--      <TargetMachine>0</TargetMachine>-->
+<!--      <TargetMachine>0</TargetMachine>-->
       <AdditionalOptions>/machine:ARM64 %(AdditionalOptions)</AdditionalOptions>
     </Link>
-    <!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
      Check if msbuild has any support for a custom post-cleaning step
  -->
-    <!-- No known equivalent for DeploymentTool in vc10:
+<!-- No known equivalent for DeploymentTool in vc10:
 -->
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
@@ -553,18 +545,18 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <ImportLibrary>.\Messenger_ZeroCopy_Idl.lib</ImportLibrary>
-      <!--
+<!--
   Though we can set TargetMachine explicitly, VC++
   can figure it out by project type. We don't need
   to set it by ourselves.
 -->
-      <!--      <TargetMachine>0</TargetMachine>-->
+<!--      <TargetMachine>0</TargetMachine>-->
       <AdditionalOptions>/machine:ARM64 %(AdditionalOptions)</AdditionalOptions>
     </Link>
-    <!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
+<!-- "postclean" was made-up by MPC for use by vs_postclean.pl.
      Check if msbuild has any support for a custom post-cleaning step
  -->
-    <!-- No known equivalent for DeploymentTool in vc10:
+<!-- No known equivalent for DeploymentTool in vc10:
 -->
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -582,7 +574,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="json.hpp" />
     <ClInclude Include="MessengerC.h" />
     <ClInclude Include="MessengerS.h" />
     <ClInclude Include="MessengerTypeSupportC.h" />
@@ -597,122 +588,74 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="MessengerTypeSupport.idl">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-PATH=%PATH%;$(ACE_ROOT)\lib
-cmd /c ""$(ACE_ROOT)\bin\tao_idl" -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I"$(TAO_ROOT)" --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export "MessengerTypeSupport.idl""
-endlocal</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Invoking ""$(ACE_ROOT)\bin\tao_idl" on MessengerTypeSupport.idl"</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;&quot;$(ACE_ROOT)\bin\tao_idl&quot; -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I&quot;$(TAO_ROOT)&quot; --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export &quot;MessengerTypeSupport.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Invoking "&quot;$(ACE_ROOT)\bin\tao_idl&quot; on MessengerTypeSupport.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MessengerTypeSupportC.cpp;MessengerTypeSupportC.h;MessengerTypeSupportC.inl;MessengerTypeSupportS.cpp;MessengerTypeSupportS.h</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BEd.dll;$(ACE_ROOT)\lib\TAO_IDL_FEd.dll</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-PATH=%PATH%;$(ACE_ROOT)\lib
-cmd /c ""$(ACE_ROOT)\bin\tao_idl" -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I"$(TAO_ROOT)" --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export "MessengerTypeSupport.idl""
-endlocal</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Invoking ""$(ACE_ROOT)\bin\tao_idl" on MessengerTypeSupport.idl"</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;&quot;$(ACE_ROOT)\bin\tao_idl&quot; -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I&quot;$(TAO_ROOT)&quot; --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export &quot;MessengerTypeSupport.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Invoking "&quot;$(ACE_ROOT)\bin\tao_idl&quot; on MessengerTypeSupport.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MessengerTypeSupportC.cpp;MessengerTypeSupportC.h;MessengerTypeSupportC.inl;MessengerTypeSupportS.cpp;MessengerTypeSupportS.h</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BE.dll;$(ACE_ROOT)\lib\TAO_IDL_FE.dll</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-PATH=%PATH%;$(ACE_ROOT)\lib
-cmd /c ""$(ACE_ROOT)\bin\tao_idl" -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I"$(TAO_ROOT)" --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export "MessengerTypeSupport.idl""
-endlocal</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Invoking ""$(ACE_ROOT)\bin\tao_idl" on MessengerTypeSupport.idl"</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;&quot;$(ACE_ROOT)\bin\tao_idl&quot; -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I&quot;$(TAO_ROOT)&quot; --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export &quot;MessengerTypeSupport.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Invoking "&quot;$(ACE_ROOT)\bin\tao_idl&quot; on MessengerTypeSupport.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MessengerTypeSupportC.cpp;MessengerTypeSupportC.h;MessengerTypeSupportC.inl;MessengerTypeSupportS.cpp;MessengerTypeSupportS.h</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BEd.dll;$(ACE_ROOT)\lib\TAO_IDL_FEd.dll</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-PATH=%PATH%;$(ACE_ROOT)\lib
-cmd /c ""$(ACE_ROOT)\bin\tao_idl" -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I"$(TAO_ROOT)" --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export "MessengerTypeSupport.idl""
-endlocal</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Invoking ""$(ACE_ROOT)\bin\tao_idl" on MessengerTypeSupport.idl"</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;&quot;$(ACE_ROOT)\bin\tao_idl&quot; -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I&quot;$(TAO_ROOT)&quot; --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export &quot;MessengerTypeSupport.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Invoking "&quot;$(ACE_ROOT)\bin\tao_idl&quot; on MessengerTypeSupport.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MessengerTypeSupportC.cpp;MessengerTypeSupportC.h;MessengerTypeSupportC.inl;MessengerTypeSupportS.cpp;MessengerTypeSupportS.h</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BE.dll;$(ACE_ROOT)\lib\TAO_IDL_FE.dll</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">setlocal
-PATH=%PATH%;$(ACE_ROOT)\lib
-cmd /c ""$(ACE_ROOT)\bin\tao_idl" -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I"$(TAO_ROOT)" --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export "MessengerTypeSupport.idl""
-endlocal</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Invoking ""$(ACE_ROOT)\bin\tao_idl" on MessengerTypeSupport.idl"</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;&quot;$(ACE_ROOT)\bin\tao_idl&quot; -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I&quot;$(TAO_ROOT)&quot; --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export &quot;MessengerTypeSupport.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Invoking "&quot;$(ACE_ROOT)\bin\tao_idl&quot; on MessengerTypeSupport.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">MessengerTypeSupportC.cpp;MessengerTypeSupportC.h;MessengerTypeSupportC.inl;MessengerTypeSupportS.cpp;MessengerTypeSupportS.h</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BEd.dll;$(ACE_ROOT)\lib\TAO_IDL_FEd.dll</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">setlocal
-PATH=%PATH%;$(ACE_ROOT)\lib
-cmd /c ""$(ACE_ROOT)\bin\tao_idl" -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I"$(TAO_ROOT)" --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export "MessengerTypeSupport.idl""
-endlocal</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Invoking ""$(ACE_ROOT)\bin\tao_idl" on MessengerTypeSupport.idl"</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;&quot;$(ACE_ROOT)\bin\tao_idl&quot; -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I&quot;$(TAO_ROOT)&quot; --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export &quot;MessengerTypeSupport.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Invoking "&quot;$(ACE_ROOT)\bin\tao_idl&quot; on MessengerTypeSupport.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">MessengerTypeSupportC.cpp;MessengerTypeSupportC.h;MessengerTypeSupportC.inl;MessengerTypeSupportS.cpp;MessengerTypeSupportS.h</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BE.dll;$(ACE_ROOT)\lib\TAO_IDL_FE.dll</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">setlocal
-PATH=%PATH%;$(ACE_ROOT)\lib
-cmd /c ""$(ACE_ROOT)\bin\tao_idl" -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I"$(TAO_ROOT)" --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export "MessengerTypeSupport.idl""
-endlocal</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">Invoking ""$(ACE_ROOT)\bin\tao_idl" on MessengerTypeSupport.idl"</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;&quot;$(ACE_ROOT)\bin\tao_idl&quot; -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I&quot;$(TAO_ROOT)&quot; --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export &quot;MessengerTypeSupport.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">Invoking "&quot;$(ACE_ROOT)\bin\tao_idl&quot; on MessengerTypeSupport.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">MessengerTypeSupportC.cpp;MessengerTypeSupportC.h;MessengerTypeSupportC.inl;MessengerTypeSupportS.cpp;MessengerTypeSupportS.h</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BEd.dll;$(ACE_ROOT)\lib\TAO_IDL_FEd.dll</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">setlocal
-PATH=%PATH%;$(ACE_ROOT)\lib
-cmd /c ""$(ACE_ROOT)\bin\tao_idl" -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I"$(TAO_ROOT)" --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export "MessengerTypeSupport.idl""
-endlocal</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">Invoking ""$(ACE_ROOT)\bin\tao_idl" on MessengerTypeSupport.idl"</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;&quot;$(ACE_ROOT)\bin\tao_idl&quot; -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I&quot;$(TAO_ROOT)&quot; --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export &quot;MessengerTypeSupport.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">Invoking "&quot;$(ACE_ROOT)\bin\tao_idl&quot; on MessengerTypeSupport.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">MessengerTypeSupportC.cpp;MessengerTypeSupportC.h;MessengerTypeSupportC.inl;MessengerTypeSupportS.cpp;MessengerTypeSupportS.h</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BE.dll;$(ACE_ROOT)\lib\TAO_IDL_FE.dll</AdditionalInputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Messenger.idl">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib
-cmd /c "..\..\..\bin\opendds_idl -Sa -St --no-dcps-data-type-warnings -Wb,export_macro=Messenger_ZeroCopy_Export "Messenger.idl" &amp;&amp; cmd /c ""$(ACE_ROOT)\bin\tao_idl" -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I"$(TAO_ROOT)" --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export "Messenger.idl""
-endlocal</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Invoking "..\..\..\bin\opendds_idl and "$(ACE_ROOT)\bin\tao_idl" on Messenger.idl"</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;&quot;$(ACE_ROOT)\bin\tao_idl&quot; -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I&quot;$(TAO_ROOT)&quot; --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export &quot;Messenger.idl&quot; &amp;&amp; cmd /c &quot;..\..\..\bin\opendds_idl -Sa -St --no-dcps-data-type-warnings -Wb,export_macro=Messenger_ZeroCopy_Export &quot;Messenger.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Invoking "&quot;$(ACE_ROOT)\bin\tao_idl&quot; and ..\..\..\bin\opendds_idl on Messenger.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MessengerC.cpp;MessengerC.h;MessengerC.inl;MessengerS.cpp;MessengerS.h;MessengerTypeSupport.idl;MessengerTypeSupportImpl.cpp;MessengerTypeSupportImpl.h</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\bin\opendds_idl.exe;..\..\..\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BEd.dll;$(ACE_ROOT)\lib\TAO_IDL_FEd.dll</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib
-cmd /c "..\..\..\bin\opendds_idl -Sa -St --no-dcps-data-type-warnings -Wb,export_macro=Messenger_ZeroCopy_Export "Messenger.idl" &amp;&amp; cmd /c ""$(ACE_ROOT)\bin\tao_idl" -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I"$(TAO_ROOT)" --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export "Messenger.idl""
-endlocal</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Invoking "..\..\..\bin\opendds_idl and "$(ACE_ROOT)\bin\tao_idl" on Messenger.idl"</Message>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ACE_ROOT)\bin\tao_idl.exe;..\..\..\bin\opendds_idl.exe;..\..\..\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\lib\TAO_IDL_BEd.dll;$(ACE_ROOT)\lib\TAO_IDL_FEd.dll</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;&quot;$(ACE_ROOT)\bin\tao_idl&quot; -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I&quot;$(TAO_ROOT)&quot; --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export &quot;Messenger.idl&quot; &amp;&amp; cmd /c &quot;..\..\..\bin\opendds_idl -Sa -St --no-dcps-data-type-warnings -Wb,export_macro=Messenger_ZeroCopy_Export &quot;Messenger.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Invoking "&quot;$(ACE_ROOT)\bin\tao_idl&quot; and ..\..\..\bin\opendds_idl on Messenger.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MessengerC.cpp;MessengerC.h;MessengerC.inl;MessengerS.cpp;MessengerS.h;MessengerTypeSupport.idl;MessengerTypeSupportImpl.cpp;MessengerTypeSupportImpl.h</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\bin\opendds_idl.exe;..\..\..\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BE.dll;$(ACE_ROOT)\lib\TAO_IDL_FE.dll</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib
-cmd /c "..\..\..\bin\opendds_idl -Sa -St --no-dcps-data-type-warnings -Wb,export_macro=Messenger_ZeroCopy_Export "Messenger.idl" &amp;&amp; cmd /c ""$(ACE_ROOT)\bin\tao_idl" -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I"$(TAO_ROOT)" --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export "Messenger.idl""
-endlocal</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Invoking "..\..\..\bin\opendds_idl and "$(ACE_ROOT)\bin\tao_idl" on Messenger.idl"</Message>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ACE_ROOT)\bin\tao_idl.exe;..\..\..\bin\opendds_idl.exe;..\..\..\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\lib\TAO_IDL_BE.dll;$(ACE_ROOT)\lib\TAO_IDL_FE.dll</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;&quot;$(ACE_ROOT)\bin\tao_idl&quot; -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I&quot;$(TAO_ROOT)&quot; --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export &quot;Messenger.idl&quot; &amp;&amp; cmd /c &quot;..\..\..\bin\opendds_idl -Sa -St --no-dcps-data-type-warnings -Wb,export_macro=Messenger_ZeroCopy_Export &quot;Messenger.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Invoking "&quot;$(ACE_ROOT)\bin\tao_idl&quot; and ..\..\..\bin\opendds_idl on Messenger.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MessengerC.cpp;MessengerC.h;MessengerC.inl;MessengerS.cpp;MessengerS.h;MessengerTypeSupport.idl;MessengerTypeSupportImpl.cpp;MessengerTypeSupportImpl.h</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\..\bin\opendds_idl.exe;..\..\..\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BEd.dll;$(ACE_ROOT)\lib\TAO_IDL_FEd.dll</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib
-cmd /c "..\..\..\bin\opendds_idl -Sa -St --no-dcps-data-type-warnings -Wb,export_macro=Messenger_ZeroCopy_Export "Messenger.idl" &amp;&amp; cmd /c ""$(ACE_ROOT)\bin\tao_idl" -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I"$(TAO_ROOT)" --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export "Messenger.idl""
-endlocal</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Invoking "..\..\..\bin\opendds_idl and "$(ACE_ROOT)\bin\tao_idl" on Messenger.idl"</Message>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ACE_ROOT)\bin\tao_idl.exe;..\..\..\bin\opendds_idl.exe;..\..\..\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\lib\TAO_IDL_BEd.dll;$(ACE_ROOT)\lib\TAO_IDL_FEd.dll</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;&quot;$(ACE_ROOT)\bin\tao_idl&quot; -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I&quot;$(TAO_ROOT)&quot; --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export &quot;Messenger.idl&quot; &amp;&amp; cmd /c &quot;..\..\..\bin\opendds_idl -Sa -St --no-dcps-data-type-warnings -Wb,export_macro=Messenger_ZeroCopy_Export &quot;Messenger.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Invoking "&quot;$(ACE_ROOT)\bin\tao_idl&quot; and ..\..\..\bin\opendds_idl on Messenger.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MessengerC.cpp;MessengerC.h;MessengerC.inl;MessengerS.cpp;MessengerS.h;MessengerTypeSupport.idl;MessengerTypeSupportImpl.cpp;MessengerTypeSupportImpl.h</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\..\bin\opendds_idl.exe;..\..\..\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BE.dll;$(ACE_ROOT)\lib\TAO_IDL_FE.dll</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">setlocal
-PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib
-cmd /c "..\..\..\bin\opendds_idl -Sa -St --no-dcps-data-type-warnings -Wb,export_macro=Messenger_ZeroCopy_Export "Messenger.idl" &amp;&amp; cmd /c ""$(ACE_ROOT)\bin\tao_idl" -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I"$(TAO_ROOT)" --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export "Messenger.idl""
-endlocal</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Invoking "..\..\..\bin\opendds_idl and "$(ACE_ROOT)\bin\tao_idl" on Messenger.idl"</Message>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ACE_ROOT)\bin\tao_idl.exe;..\..\..\bin\opendds_idl.exe;..\..\..\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\lib\TAO_IDL_BE.dll;$(ACE_ROOT)\lib\TAO_IDL_FE.dll</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;&quot;$(ACE_ROOT)\bin\tao_idl&quot; -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I&quot;$(TAO_ROOT)&quot; --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export &quot;Messenger.idl&quot; &amp;&amp; cmd /c &quot;..\..\..\bin\opendds_idl -Sa -St --no-dcps-data-type-warnings -Wb,export_macro=Messenger_ZeroCopy_Export &quot;Messenger.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Invoking "&quot;$(ACE_ROOT)\bin\tao_idl&quot; and ..\..\..\bin\opendds_idl on Messenger.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">MessengerC.cpp;MessengerC.h;MessengerC.inl;MessengerS.cpp;MessengerS.h;MessengerTypeSupport.idl;MessengerTypeSupportImpl.cpp;MessengerTypeSupportImpl.h</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">..\..\..\bin\opendds_idl.exe;..\..\..\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BEd.dll;$(ACE_ROOT)\lib\TAO_IDL_FEd.dll</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">setlocal
-PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib
-cmd /c "..\..\..\bin\opendds_idl -Sa -St --no-dcps-data-type-warnings -Wb,export_macro=Messenger_ZeroCopy_Export "Messenger.idl" &amp;&amp; cmd /c ""$(ACE_ROOT)\bin\tao_idl" -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I"$(TAO_ROOT)" --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export "Messenger.idl""
-endlocal</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Invoking "..\..\..\bin\opendds_idl and "$(ACE_ROOT)\bin\tao_idl" on Messenger.idl"</Message>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(ACE_ROOT)\bin\tao_idl.exe;..\..\..\bin\opendds_idl.exe;..\..\..\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\lib\TAO_IDL_BEd.dll;$(ACE_ROOT)\lib\TAO_IDL_FEd.dll</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;&quot;$(ACE_ROOT)\bin\tao_idl&quot; -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I&quot;$(TAO_ROOT)&quot; --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export &quot;Messenger.idl&quot; &amp;&amp; cmd /c &quot;..\..\..\bin\opendds_idl -Sa -St --no-dcps-data-type-warnings -Wb,export_macro=Messenger_ZeroCopy_Export &quot;Messenger.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Invoking "&quot;$(ACE_ROOT)\bin\tao_idl&quot; and ..\..\..\bin\opendds_idl on Messenger.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">MessengerC.cpp;MessengerC.h;MessengerC.inl;MessengerS.cpp;MessengerS.h;MessengerTypeSupport.idl;MessengerTypeSupportImpl.cpp;MessengerTypeSupportImpl.h</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">..\..\..\bin\opendds_idl.exe;..\..\..\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BE.dll;$(ACE_ROOT)\lib\TAO_IDL_FE.dll</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">setlocal
-PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib
-cmd /c "..\..\..\bin\opendds_idl -Sa -St --no-dcps-data-type-warnings -Wb,export_macro=Messenger_ZeroCopy_Export "Messenger.idl" &amp;&amp; cmd /c ""$(ACE_ROOT)\bin\tao_idl" -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I"$(TAO_ROOT)" --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export "Messenger.idl""
-endlocal</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">Invoking "..\..\..\bin\opendds_idl and "$(ACE_ROOT)\bin\tao_idl" on Messenger.idl"</Message>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(ACE_ROOT)\bin\tao_idl.exe;..\..\..\bin\opendds_idl.exe;..\..\..\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\lib\TAO_IDL_BE.dll;$(ACE_ROOT)\lib\TAO_IDL_FE.dll</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;&quot;$(ACE_ROOT)\bin\tao_idl&quot; -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I&quot;$(TAO_ROOT)&quot; --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export &quot;Messenger.idl&quot; &amp;&amp; cmd /c &quot;..\..\..\bin\opendds_idl -Sa -St --no-dcps-data-type-warnings -Wb,export_macro=Messenger_ZeroCopy_Export &quot;Messenger.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">Invoking "&quot;$(ACE_ROOT)\bin\tao_idl&quot; and ..\..\..\bin\opendds_idl on Messenger.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">MessengerC.cpp;MessengerC.h;MessengerC.inl;MessengerS.cpp;MessengerS.h;MessengerTypeSupport.idl;MessengerTypeSupportImpl.cpp;MessengerTypeSupportImpl.h</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">..\..\..\bin\opendds_idl.exe;..\..\..\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BEd.dll;$(ACE_ROOT)\lib\TAO_IDL_FEd.dll</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">setlocal
-PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib
-cmd /c "..\..\..\bin\opendds_idl -Sa -St --no-dcps-data-type-warnings -Wb,export_macro=Messenger_ZeroCopy_Export "Messenger.idl" &amp;&amp; cmd /c ""$(ACE_ROOT)\bin\tao_idl" -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I"$(TAO_ROOT)" --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export "Messenger.idl""
-endlocal</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">Invoking "..\..\..\bin\opendds_idl and "$(ACE_ROOT)\bin\tao_idl" on Messenger.idl"</Message>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">$(ACE_ROOT)\bin\tao_idl.exe;..\..\..\bin\opendds_idl.exe;..\..\..\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\lib\TAO_IDL_BEd.dll;$(ACE_ROOT)\lib\TAO_IDL_FEd.dll</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">setlocal&#x0D;&#x0A;PATH=%PATH%;$(ACE_ROOT)\lib;$(ACE_ROOT)\lib&#x0D;&#x0A;cmd /c &quot;&quot;$(ACE_ROOT)\bin\tao_idl&quot; -Wb,pre_include=ace/pre.h -Wb,post_include=ace/post.h -I&quot;$(TAO_ROOT)&quot; --idl-version 4 --unknown-annotations ignore -as -Sa -St -I..\..\.. -Wb,stub_export_include=Messenger_ZeroCopy_export.h -Wb,stub_export_macro=Messenger_ZeroCopy_Export &quot;Messenger.idl&quot; &amp;&amp; cmd /c &quot;..\..\..\bin\opendds_idl -Sa -St --no-dcps-data-type-warnings -Wb,export_macro=Messenger_ZeroCopy_Export &quot;Messenger.idl&quot;&quot;&#x0D;&#x0A;endlocal</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">Invoking "&quot;$(ACE_ROOT)\bin\tao_idl&quot; and ..\..\..\bin\opendds_idl on Messenger.idl"</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">MessengerC.cpp;MessengerC.h;MessengerC.inl;MessengerS.cpp;MessengerS.h;MessengerTypeSupport.idl;MessengerTypeSupportImpl.cpp;MessengerTypeSupportImpl.h</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">..\..\..\bin\opendds_idl.exe;..\..\..\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\bin\tao_idl.exe;$(ACE_ROOT)\lib\TAO_IDL_BE.dll;$(ACE_ROOT)\lib\TAO_IDL_FE.dll</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">$(ACE_ROOT)\bin\tao_idl.exe;..\..\..\bin\opendds_idl.exe;..\..\..\dds\idl\IDLTemplate.txt;$(ACE_ROOT)\lib\TAO_IDL_BE.dll;$(ACE_ROOT)\lib\TAO_IDL_FE.dll</AdditionalInputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

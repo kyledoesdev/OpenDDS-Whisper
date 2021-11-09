@@ -20,7 +20,7 @@
       <UniqueIdentifier>{2990FA4C-FECA-1BAD-4EB3-0D100B4C77B2}</UniqueIdentifier>
       <Extensions>idl</Extensions>
     </Filter>
-    <Filter Include="Typesupport And Idl Files">
+    <Filter Include="Idl And Typesupport Files">
       <UniqueIdentifier>{9E235CA7-FECA-1BAD-4EB3-0D100B4C77B2}</UniqueIdentifier>
       <Extensions>idl</Extensions>
     </Filter>
@@ -31,19 +31,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MessengerC.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>default_group</Filter>
     </ClCompile>
     <ClCompile Include="MessengerS.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>default_group</Filter>
     </ClCompile>
     <ClCompile Include="MessengerTypeSupportC.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>default_group</Filter>
     </ClCompile>
     <ClCompile Include="MessengerTypeSupportImpl.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>default_group</Filter>
     </ClCompile>
     <ClCompile Include="MessengerTypeSupportS.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>default_group</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -60,9 +60,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MessengerTypeSupportS.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="json.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -83,7 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Messenger.idl">
-      <Filter>Typesupport And Idl Files</Filter>
+      <Filter>Idl And Typesupport Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

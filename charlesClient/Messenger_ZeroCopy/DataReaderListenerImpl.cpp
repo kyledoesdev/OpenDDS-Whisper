@@ -66,18 +66,14 @@ DataReaderListenerImpl::on_data_available(DDS::DataReader_ptr reader)
                                            DDS::ANY_INSTANCE_STATE);
 
   if (error == DDS::RETCODE_OK) {
-    std::cout << "SampleInfo.sample_rank = " << info[0].sample_rank << std::endl;
-    std::cout << "SampleInfo.instance_state = " << info[0].instance_state << std::endl;
+    //std::cout << "SampleInfo.sample_rank = " << info[0].sample_rank << std::endl;
+    //std::cout << "SampleInfo.instance_state = " << info[0].instance_state << std::endl;
 
     if (info[0].valid_data) {
-      std::cout << "Message: subject        = " << messages[0].subject.in() << std::endl
-                << "         subject_id     = " << messages[0].subject_id   << std::endl
-                << "         Name           = " << messages[0].Name.in()    << std::endl
-                << "         Review Count   = " << messages[0].count        << std::endl
-                << "         address        = " << messages[0].address.in()    << std::endl
-                << "         city           = " << messages[0].city.in() << std::endl
-                << "         zip            = " << messages[0].zip.in() << std::endl
-                << "         state          = " << messages[0].state.in() << std::endl;
+      std::cout << messages[0].Name.in()    << std::endl
+                << "      " << messages[0].rating        << " Stars" << std::endl
+                << "      " << messages[0].address.in() << ", " << messages[0].city.in() << ", "
+                << messages[0].state.in()  << " " << messages[0].zip.in() << std::endl;
 
     }
 
