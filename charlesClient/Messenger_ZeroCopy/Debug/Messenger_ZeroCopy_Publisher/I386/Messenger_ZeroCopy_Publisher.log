@@ -1,3 +1,0 @@
-﻿  Publisher.cpp
-C:\Users\lilc1\dev\OpenDDS-3.18.1\DevGuideExamples\DCPS\Messenger_ZeroCopy\Publisher.cpp(310): warning C4715: 'ace_main_i': not all control paths return a value
-  Messenger_ZeroCopy_Publisher.vcxproj -> C:\Users\lilc1\dev\OpenDDS-3.18.1\DevGuideExamples\DCPS\Messenger_ZeroCopy\publisher.exe

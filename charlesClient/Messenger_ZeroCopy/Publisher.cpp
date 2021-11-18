@@ -26,8 +26,6 @@
 #include "curl/curl.h"
 #include <json/json.h>
 
-using json = nlohmann::json;
-
 namespace
 {
     std::size_t callback(
@@ -43,9 +41,8 @@ namespace
 }
 
 
-int
-ACE_TMAIN(int argc, ACE_TCHAR *argv[])
-{
+int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
+
     BOOLEAN isLocationEnabled = true;
     const char* myBusinessName = "";
     double BusinessRating = 0;
@@ -59,86 +56,83 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
     const char* myBusinessCity = "";
     const char* myBusinessState = "";
     const char* myBusinessZipCode = "";
+    const char* myBusinessPhoneNum = "";
+    std::string myBusinessPhoneNumString = "";
+    BOOLEAN myBusinessIsOpen = true;
     int resultsReturned = 0;
     int resultsLimit = 0;
 
     std::string searchURL = "https://api.yelp.com/v3/businesses/search?term=";
     std::string in;
-    std::cout << "Please input a search term\n";
-    std::cin >> in;
-    searchURL = searchURL + in;
-    if (isLocationEnabled)
-    {
-        std::cout << "Please input your location\n";
+    std::string answer = "";
+    std::string myLocation = "";
+    std::string publishing_term = "";
+
+    do {
+        std::string searchURL = "https://api.yelp.com/v3/businesses/search?term=";
+        std::cout << "Please input a search term\n";
         std::cin >> in;
-        searchURL = searchURL + "&location=" + in;
-    }
-    else {
-        std::cout << "Please input a latitude (ex 39.7029)\n";
-        std::cin >> in;
-        searchURL = searchURL + "&latitude=" + in;
-        std::cout << "Please input a longitude (ex 75.1118)\n";
-        std::cin >> in;
-        searchURL = searchURL + "&longitude=" + in;
-    }
-    std::cout << "Please input the max amount of results you would like\n";
-    std::cin >> in;
-    resultsLimit = std::stoi(in);
-    searchURL = searchURL + "&limit=" + in;
-    std::cout << "Please input a suggested search radius (max is 40000)\n";
-    std::cin >> in;
-    if (in == "0") { in = ""; }
-    searchURL = searchURL + "&radius=" + in;
-    // std::cout << searchURL;
-
-    Json::Reader jsonReader;
-    Json::Value jsonData;
-
-    CURL* req = curl_easy_init();
-    if (req) {
-        curl_easy_setopt(req, CURLOPT_URL, searchURL.c_str());
-        struct curl_slist* headers = NULL;
-        headers = curl_slist_append(headers, "Content-Type: application/json");
-        headers = curl_slist_append(headers, "Authorization: Bearer 8uZBQKRUxpFZJG65jmtQCgCVwzsDjwYHi06qI1wvuPi1PCdKadGQKKcYhOpvl5ITMDHUScQHZ62xH19F9LB52UH0UJWQ_tFUqDyC88-PUjoT1nLRmGLHQ1t2t0lyYXYx");
-        curl_easy_setopt(req, CURLOPT_HTTPHEADER, headers);
-        curl_easy_setopt(req, CURLOPT_FOLLOWLOCATION, 1L);
-        curl_easy_setopt(req, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-        curl_easy_setopt(req, CURLOPT_TIMEOUT, 10);
-        curl_easy_setopt(req, CURLOPT_FOLLOWLOCATION, 1L);
-
-        // Response information.
-        long httpCode(0);
-        std::unique_ptr<std::string> httpData(new std::string());
-        curl_easy_setopt(req, CURLOPT_WRITEFUNCTION, callback);
-        curl_easy_setopt(req, CURLOPT_WRITEDATA, httpData.get());
-        curl_easy_perform(req);
-        curl_easy_getinfo(req, CURLINFO_RESPONSE_CODE, &httpCode);
-        curl_easy_cleanup(req);
-
-        if (jsonReader.parse(*httpData.get(), jsonData))
-        {
-            myBusinessName = jsonData["businesses"][0]["name"].asCString();
-            BusinessRating = jsonData["businesses"][0]["rating"].asDouble();
-            reviewCount = jsonData["businesses"][0]["review_count"].asInt();
-            myBusinessDistance = jsonData["businesses"][0]["distance"].asDouble();
-            myBusinessDistance = myBusinessDistance / 1609.344;
-            myBusinessAddress1 = jsonData["businesses"][0]["location"]["address1"].asCString();
-            myBusinessCity = jsonData["businesses"][0]["location"]["city"].asCString();
-            myBusinessState = jsonData["businesses"][0]["location"]["state"].asCString();
-            myBusinessZipCode = jsonData["businesses"][0]["location"]["zip_code"].asCString();
-            resultsReturned = jsonData["total"].asInt();
-
-            //std::cout << jsonData << std::endl;
-            std::cout << myBusinessName << std::endl
-                << "      " << BusinessRating << " Stars" << std::endl
-                << "      " << reviewCount << " Reviews" << std::endl
-                << "      " << myBusinessDistance << " miles away" << std::endl
-                << "      " << myBusinessAddress1 << ", "
-                << myBusinessCity << ", "
-                << myBusinessState << ", "
-                << myBusinessZipCode << " " << std::endl;
+        publishing_term = in;
+        char* converted_term = const_cast<char*>(publishing_term.c_str());
+        searchURL = searchURL + in;
+        if (isLocationEnabled) {
+            std::cout << "Please input your location\n";
+            std::cin >> in;
+            myLocation = in;
+            searchURL = searchURL + "&location=" + in;
         }
+        else {
+            std::cout << "Please input a latitude (ex 39.7029)\n";
+            std::cin >> in;
+            searchURL = searchURL + "&latitude=" + in;
+            std::cout << "Please input a longitude (ex 75.1118)\n";
+            std::cin >> in;
+            searchURL = searchURL + "&longitude=" + in;
+        }
+        do {
+            std::cout << "Please input the max amount of results you would like (Max 50)\n";
+            std::cin >> in;
+        } while (std::stoi(in) > 50);
+
+        resultsLimit = std::stoi(in);
+        searchURL = searchURL + "&limit=" + in;
+        std::cout << "Please input a suggested search radius (max is 40000)\n";
+        std::cin >> in;
+        //for debug
+        if (in == "0") { in = ""; }
+        searchURL = searchURL + "&radius=" + in;
+
+        Json::Reader jsonReader;
+        Json::Value jsonData;
+
+        CURL* req = curl_easy_init();
+        if (req) {
+            curl_easy_setopt(req, CURLOPT_URL, searchURL.c_str());
+            struct curl_slist* headers = NULL;
+            headers = curl_slist_append(headers, "Content-Type: application/json");
+            headers = curl_slist_append(headers, "Authorization: Bearer 8uZBQKRUxpFZJG65jmtQCgCVwzsDjwYHi06qI1wvuPi1PCdKadGQKKcYhOpvl5ITMDHUScQHZ62xH19F9LB52UH0UJWQ_tFUqDyC88-PUjoT1nLRmGLHQ1t2t0lyYXYx");
+            curl_easy_setopt(req, CURLOPT_HTTPHEADER, headers);
+            curl_easy_setopt(req, CURLOPT_FOLLOWLOCATION, 1L);
+            curl_easy_setopt(req, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+            curl_easy_setopt(req, CURLOPT_TIMEOUT, 10);
+            curl_easy_setopt(req, CURLOPT_FOLLOWLOCATION, 1L);
+
+            // Response information.
+            long httpCode(0);
+            std::unique_ptr<std::string> httpData(new std::string());
+            curl_easy_setopt(req, CURLOPT_WRITEFUNCTION, callback);
+            curl_easy_setopt(req, CURLOPT_WRITEDATA, httpData.get());
+            curl_easy_perform(req);
+            curl_easy_getinfo(req, CURLINFO_RESPONSE_CODE, &httpCode);
+            curl_easy_cleanup(req);
+
             try {
+
+                if (jsonReader.parse(*httpData.get(), jsonData)) 
+                {
+                    std::cout << jsonData << std::endl;
+                }
+
                 // Initialize DomainParticipantFactory
                 DDS::DomainParticipantFactory_var dpf =
                     TheParticipantFactoryWithArgs(argc, argv);
@@ -171,7 +165,7 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
                 // Create Topic (Movie Discussion List)
                 CORBA::String_var type_name = ts->get_type_name();
                 DDS::Topic_var topic =
-                    participant->create_topic("Movie Discussion List",
+                    participant->create_topic(converted_term,
                         type_name.in(),
                         TOPIC_QOS_DEFAULT,
                         DDS::TopicListener::_nil(),
@@ -230,14 +224,15 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
                 DDS::ConditionSeq conditions;
                 DDS::PublicationMatchedStatus matches = { 0, 0, 0, 0, 0 };
-                DDS::Duration_t timeout = { 30, 0 };
+                DDS::Duration_t timeout = { 300, 0 };
 
                 do {
                     if (ws->wait(conditions, timeout) != DDS::RETCODE_OK) {
-                        ACE_ERROR_RETURN((LM_ERROR,
-                            ACE_TEXT("ERROR: %N:%l: main() -")
-                            ACE_TEXT(" wait failed!\n")),
-                            -1);
+                        //ACE_ERROR_RETURN((LM_ERROR,
+                           // ACE_TEXT("ERROR: %N:%l: main() -")
+                            //ACE_TEXT(" wait failed!\n")),
+                            //-1);
+                        std::cout << "No subscribers online waiting for this after 30 seconds!" << std::endl;
                     }
 
                     if (writer->get_publication_matched_status(matches) != ::DDS::RETCODE_OK) {
@@ -251,37 +246,79 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
                 ws->detach_condition(condition);
 
-                // const char* myBusinessRating = BusinessRating.c_str();
-                std::string BusinessRatingString = std::to_string(BusinessRating);
-                const char* myBusinessRating = BusinessRatingString.c_str();
-                std::string BusinessReviewCount = std::to_string(reviewCount);
-                myBusinessReviewCount = BusinessReviewCount.c_str();
-                std::string BusinessDistance = std::to_string(myBusinessDistance);
-                const char* myBusinessDistanceString = BusinessDistance.c_str();
+                if (jsonReader.parse(*httpData.get(), jsonData)) {
+                    std::cout << jsonData << std::endl;
+                    resultsReturned = jsonData["total"].asInt();
+                    if (resultsLimit < resultsReturned) {
+                        resultsReturned = resultsLimit;
+                    }
+                    if (resultsReturned == 0) {
+                        std::cout << "No results were returned for that Location and Search Term!" << std::endl;
+                    }
+                    else {
+                        for (int i = 0; i < resultsReturned; i++) {
+                            myBusinessName = jsonData["businesses"][i]["name"].asCString();
+                            BusinessRating = jsonData["businesses"][i]["rating"].asFloat();
+                            //BusinessRating = round(BusinessRating * 100.0) / 100.0;
+                            reviewCount = jsonData["businesses"][i]["review_count"].asInt();
+                            myBusinessDistance = jsonData["businesses"][i]["distance"].asDouble();
+                            myBusinessDistance = myBusinessDistance / 1609.344;
+                            myBusinessDistance = round(myBusinessDistance * 10.0) / 10.0;
+                            myBusinessPhoneNumString = jsonData["businesses"][i]["display_phone"].asString();
+                            myBusinessAddress1 = jsonData["businesses"][i]["location"]["address1"].asCString();
+                            myBusinessCity = jsonData["businesses"][i]["location"]["city"].asCString();
+                            myBusinessState = jsonData["businesses"][i]["location"]["state"].asCString();
+                            myBusinessZipCode = jsonData["businesses"][i]["location"]["zip_code"].asCString();
+                            myBusinessIsOpen = !jsonData["businesses"][i]["is_closed"].asBool();
+                            const char* myBusinessIsOpenString;
+                            if (myBusinessIsOpen == true)
+                            {
+                                myBusinessIsOpenString = "Open";
+                            }
+                            else { myBusinessIsOpenString = "Closed"; }
 
-                // Write samples
-                Messenger::Message message;
-                message.subject_id = 99;
+                            std::string BusinessRatingString = std::to_string(BusinessRating);
+                            const char* myBusinessRating = BusinessRatingString.c_str();
+                            std::string BusinessReviewCount = std::to_string(reviewCount);
+                            myBusinessReviewCount = BusinessReviewCount.c_str();
+                            std::string BusinessDistance = std::to_string(myBusinessDistance);
+                            const char* myBusinessDistanceString = BusinessDistance.c_str();
 
-                message.Name = myBusinessName;
-                message.rating = myBusinessRating;
-                message.reviews = myBusinessReviewCount;
-                message.distance = myBusinessDistanceString;
-                message.subject = CORBA::string_dup("OpenDDS Yelp API Testing Ideas");
-                message.address = myBusinessAddress1;
-                message.city = myBusinessCity;
-                message.zip = myBusinessZipCode;
-                message.state = myBusinessState;
-                message.count = reviewCount;
+                            Messenger::Message message;
+                            message.Name = myBusinessName;
+                            message.rating = BusinessRating;
+                            message.reviews = myBusinessReviewCount;
+                            message.distance = myBusinessDistance;
+                            message.address = myBusinessAddress1;
+                            message.city = myBusinessCity;
+                            message.zip = myBusinessZipCode;
+                            message.state = myBusinessState;
+                            message.count = reviewCount;
+                            message.isOpen = myBusinessIsOpenString;
+                            message.myLocation = myLocation.c_str();
+                            if (myBusinessPhoneNumString.empty())
+                            {
+                                message.phoneNum = "";
+                            }
+                            else {
+                                myBusinessPhoneNum = myBusinessPhoneNumString.c_str();
+                                std::string formattedString("      ");
+                                formattedString.append(myBusinessPhoneNum);
+                                formattedString.append("\n");
+                                message.phoneNum = formattedString.c_str();
+                                //message.phoneNum = strcat(myBusinessPhoneNum, "are ");
+                            }
+                            
 
-                if (resultsLimit < resultsReturned) { resultsReturned = resultsLimit; }
-                for (int i = 0; i < resultsReturned; i++) {
-                    DDS::ReturnCode_t error = message_writer->write(message, DDS::HANDLE_NIL);
+                            DDS::ReturnCode_t error = message_writer->write(message, DDS::HANDLE_NIL);
 
-                    if (error != DDS::RETCODE_OK) {
-                        ACE_ERROR((LM_ERROR,
-                            ACE_TEXT("ERROR: %N:%l: main() -")
-                            ACE_TEXT(" write returned %d!\n"), error));
+                            if (error != DDS::RETCODE_OK) {
+                                ACE_ERROR((LM_ERROR,
+                                    ACE_TEXT("ERROR: %N:%l: main() -")
+                                    ACE_TEXT(" write returned %d!\n"), error));
+                            }
+                        }
+                        std::cout << "Your Messages were recieved and sent!" << std::endl;
                     }
                 }
 
@@ -293,18 +330,20 @@ ACE_TMAIN(int argc, ACE_TCHAR *argv[])
                         -1);
                 }
 
-                // Clean-up!
-                participant->delete_contained_entities();
-                dpf->delete_participant(participant.in());
-
-                TheServiceParticipant->shutdown();
-
             }
             catch (const CORBA::Exception& e) {
                 e._tao_print_exception("Exception caught in main():");
                 return -1;
             }
 
-            return 0;
+            std::cout << "Submit another request? Enter yes/no" << std::endl;
+            std::cin >> answer;
         }
+    } while (answer == "yes");
+    // Clean-up!
+    //participant->delete_contained_entities();
+    //dpf->delete_participant(participant.in());
+    TheServiceParticipant->shutdown();
+
+    return 0;
 }
