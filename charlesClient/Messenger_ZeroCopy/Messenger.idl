@@ -8,13 +8,18 @@ module Messenger {
   @topic
   struct Message {
     string Name;
-    string rating;
+    float rating;
+    string reviews;
+    float distance;
     string subject;
     @key long subject_id;
     string address;
     string city;
     string state;
     string zip;
+    string isOpen;
+    string myLocation;
+    string phoneNum;
     long count;
   };
 };

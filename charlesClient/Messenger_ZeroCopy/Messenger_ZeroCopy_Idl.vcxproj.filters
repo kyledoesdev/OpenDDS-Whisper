@@ -20,7 +20,7 @@
       <UniqueIdentifier>{2990FA4C-FECA-1BAD-4EB3-0D100B4C77B2}</UniqueIdentifier>
       <Extensions>idl</Extensions>
     </Filter>
-    <Filter Include="Idl And Typesupport Files">
+    <Filter Include="Typesupport And Idl Files">
       <UniqueIdentifier>{9E235CA7-FECA-1BAD-4EB3-0D100B4C77B2}</UniqueIdentifier>
       <Extensions>idl</Extensions>
     </Filter>
@@ -80,7 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Messenger.idl">
-      <Filter>Idl And Typesupport Files</Filter>
+      <Filter>Typesupport And Idl Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

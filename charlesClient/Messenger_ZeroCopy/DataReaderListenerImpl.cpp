@@ -70,8 +70,11 @@ DataReaderListenerImpl::on_data_available(DDS::DataReader_ptr reader)
     //std::cout << "SampleInfo.instance_state = " << info[0].instance_state << std::endl;
 
     if (info[0].valid_data) {
-      std::cout << messages[0].Name.in()    << std::endl
+      std::cout << messages[0].Name.in()    << "  (" << messages[0].isOpen << ")" << std::endl
                 << "      " << messages[0].rating        << " Stars" << std::endl
+                << "      " << messages[0].reviews << " Reviews" << std::endl
+                << messages[0].phoneNum << ""
+                << "      " << messages[0].distance << " Miles from " << messages[0].myLocation << std::endl
                 << "      " << messages[0].address.in() << ", " << messages[0].city.in() << ", "
                 << messages[0].state.in()  << " " << messages[0].zip.in() << std::endl;
 

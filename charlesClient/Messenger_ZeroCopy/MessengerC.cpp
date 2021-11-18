@@ -47,13 +47,18 @@ TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 {
   return
     (strm << _tao_aggregate.Name.in ()) &&
-    (strm << _tao_aggregate.rating.in ()) &&
+    (strm << _tao_aggregate.rating) &&
+    (strm << _tao_aggregate.reviews.in ()) &&
+    (strm << _tao_aggregate.distance) &&
     (strm << _tao_aggregate.subject.in ()) &&
     (strm << _tao_aggregate.subject_id) &&
     (strm << _tao_aggregate.address.in ()) &&
     (strm << _tao_aggregate.city.in ()) &&
     (strm << _tao_aggregate.state.in ()) &&
     (strm << _tao_aggregate.zip.in ()) &&
+    (strm << _tao_aggregate.isOpen.in ()) &&
+    (strm << _tao_aggregate.myLocation.in ()) &&
+    (strm << _tao_aggregate.phoneNum.in ()) &&
     (strm << _tao_aggregate.count);
 }
 
@@ -63,13 +68,18 @@ TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 {
   return
     (strm >> _tao_aggregate.Name.out ()) &&
-    (strm >> _tao_aggregate.rating.out ()) &&
+    (strm >> _tao_aggregate.rating) &&
+    (strm >> _tao_aggregate.reviews.out ()) &&
+    (strm >> _tao_aggregate.distance) &&
     (strm >> _tao_aggregate.subject.out ()) &&
     (strm >> _tao_aggregate.subject_id) &&
     (strm >> _tao_aggregate.address.out ()) &&
     (strm >> _tao_aggregate.city.out ()) &&
     (strm >> _tao_aggregate.state.out ()) &&
     (strm >> _tao_aggregate.zip.out ()) &&
+    (strm >> _tao_aggregate.isOpen.out ()) &&
+    (strm >> _tao_aggregate.myLocation.out ()) &&
+    (strm >> _tao_aggregate.phoneNum.out ()) &&
     (strm >> _tao_aggregate.count);
 }
 

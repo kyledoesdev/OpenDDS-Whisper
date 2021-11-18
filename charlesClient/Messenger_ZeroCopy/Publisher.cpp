@@ -24,9 +24,7 @@
 #include <iostream>
 #include <memory>
 #include "curl/curl.h"
-//#include <json/json.h>
-
-using json = nlohmann::json;
+#include <json/json.h>
 
 namespace
 {
@@ -43,230 +41,309 @@ namespace
 }
 
 
-int
-ACE_TMAIN(int argc, ACE_TCHAR *argv[])
-{
+int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
+
+    BOOLEAN isLocationEnabled = true;
+    const char* myBusinessName = "";
+    double BusinessRating = 0;
+    // double myBusinessDistance = dblBusinessDistance / 1609.344;
+    const char* myBusinessReviewCount = "";
+    double myBusinessDistance = 0;
+    const char* myBusinessDistanceString = "";
+    const char* myBusinessAlias = "";
+    int reviewCount = 0;
+    const char* myBusinessAddress1 = "";
+    const char* myBusinessCity = "";
+    const char* myBusinessState = "";
+    const char* myBusinessZipCode = "";
+    const char* myBusinessPhoneNum = "";
+    std::string myBusinessPhoneNumString = "";
+    BOOLEAN myBusinessIsOpen = true;
+    int resultsReturned = 0;
+    int resultsLimit = 0;
+
     std::string searchURL = "https://api.yelp.com/v3/businesses/search?term=";
     std::string in;
-    std::cout << "Please input a search term\n";
-    std::cin >> in;
-    searchURL = searchURL + in;
-    std::cout << "Please input a latitude (ex 39.7029)\n";
-    std::cin >> in;
-    searchURL = searchURL + "&latitude=" + in;
-    std::cout << "Please input a longitude (ex 75.1118)\n";
-    std::cin >> in;
-    searchURL = searchURL + "&longitude=" + in;
-    // std::cout << searchURL;
-    
-    CURL* req = curl_easy_init();
-    CURLcode res;
-    if (req)
-    {
-        curl_easy_setopt(req, CURLOPT_URL, searchURL.c_str());
-        struct curl_slist* headers = NULL;
-        headers = curl_slist_append(headers, "Content-Type: application/json");
-        headers = curl_slist_append(headers, "Authorization: Bearer 8uZBQKRUxpFZJG65jmtQCgCVwzsDjwYHi06qI1wvuPi1PCdKadGQKKcYhOpvl5ITMDHUScQHZ62xH19F9LB52UH0UJWQ_tFUqDyC88-PUjoT1nLRmGLHQ1t2t0lyYXYx");
-        curl_easy_setopt(req, CURLOPT_HTTPHEADER, headers);
-        curl_easy_setopt(req, CURLOPT_FOLLOWLOCATION, 1L);
-        res = curl_easy_perform(req);
-        if (res != CURLE_OK)
-        {
-            fprintf(stderr, "curl_easy_operation() failed : %s\n", curl_easy_strerror(res));
-        }
-    }
-    curl_easy_cleanup(req);
-
-    //return 0;
-    //YER
-  try {
-    // Initialize DomainParticipantFactory
-    DDS::DomainParticipantFactory_var dpf =
-      TheParticipantFactoryWithArgs(argc, argv);
-
-    // Create DomainParticipant
-    DDS::DomainParticipant_var participant =
-      dpf->create_participant(42,
-                              PARTICIPANT_QOS_DEFAULT,
-                              DDS::DomainParticipantListener::_nil(),
-                              OpenDDS::DCPS::DEFAULT_STATUS_MASK);
-
-    if (CORBA::is_nil(participant.in())) {
-      ACE_ERROR_RETURN((LM_ERROR,
-                        ACE_TEXT("ERROR: %N:%l: main() -")
-                        ACE_TEXT(" create_participant failed!\n")),
-                       -1);
-    }
-
-    // Register TypeSupport (Messenger::Message)
-    Messenger::MessageTypeSupport_var ts =
-      new Messenger::MessageTypeSupportImpl();
-
-    if (ts->register_type(participant.in(), "") != DDS::RETCODE_OK) {
-      ACE_ERROR_RETURN((LM_ERROR,
-                        ACE_TEXT("ERROR: %N:%l: main() -")
-                        ACE_TEXT(" register_type failed!\n")),
-                       -1);
-    }
-
-    // Create Topic (Movie Discussion List)
-    CORBA::String_var type_name = ts->get_type_name();
-    DDS::Topic_var topic =
-      participant->create_topic("Movie Discussion List",
-                                type_name.in(),
-                                TOPIC_QOS_DEFAULT,
-                                DDS::TopicListener::_nil(),
-                                OpenDDS::DCPS::DEFAULT_STATUS_MASK);
-
-    if (CORBA::is_nil(topic.in())) {
-      ACE_ERROR_RETURN((LM_ERROR,
-                        ACE_TEXT("ERROR: %N:%l: main() -")
-                        ACE_TEXT(" create_topic failed!\n")),
-                       -1);
-    }
-
-    // Create Publisher
-    DDS::Publisher_var publisher =
-      participant->create_publisher(PUBLISHER_QOS_DEFAULT,
-                                    DDS::PublisherListener::_nil(),
-                                    OpenDDS::DCPS::DEFAULT_STATUS_MASK);
-
-    if (CORBA::is_nil(publisher.in())) {
-      ACE_ERROR_RETURN((LM_ERROR,
-                        ACE_TEXT("ERROR: %N:%l: main() -")
-                        ACE_TEXT(" create_publisher failed!\n")),
-                       -1);
-    }
-
-    // Create DataWriter
-    DDS::DataWriter_var writer =
-      publisher->create_datawriter(topic.in(),
-                                   DATAWRITER_QOS_DEFAULT,
-                                   DDS::DataWriterListener::_nil(),
-                                   OpenDDS::DCPS::DEFAULT_STATUS_MASK);
-
-    if (CORBA::is_nil(writer.in())) {
-      ACE_ERROR_RETURN((LM_ERROR,
-                        ACE_TEXT("ERROR: %N:%l: main() -")
-                        ACE_TEXT(" create_datawriter failed!\n")),
-                       -1);
-    }
-
-    Messenger::MessageDataWriter_var message_writer =
-      Messenger::MessageDataWriter::_narrow(writer.in());
-
-    if (CORBA::is_nil(message_writer.in())) {
-        ACE_ERROR_RETURN((LM_ERROR,
-                          ACE_TEXT("ERROR: %N:%l: main() -")
-                          ACE_TEXT(" _narrow failed!\n")),
-                         -1);
-    }
-
-    // Block until Subscriber is available
-    DDS::StatusCondition_var condition = writer->get_statuscondition();
-    condition->set_enabled_statuses(DDS::PUBLICATION_MATCHED_STATUS);
-
-    DDS::WaitSet_var ws = new DDS::WaitSet;
-    ws->attach_condition(condition);
-
-    DDS::ConditionSeq conditions;
-    DDS::PublicationMatchedStatus matches = { 0, 0, 0, 0, 0 };
-    DDS::Duration_t timeout = { 30, 0 };
+    std::string answer = "";
+    std::string myLocation = "";
+    std::string publishing_term = "";
 
     do {
-      if (ws->wait(conditions, timeout) != DDS::RETCODE_OK) {
-        ACE_ERROR_RETURN((LM_ERROR,
-                          ACE_TEXT("ERROR: %N:%l: main() -")
-                          ACE_TEXT(" wait failed!\n")),
-                         -1);
-      }
+        std::string searchURL = "https://api.yelp.com/v3/businesses/search?term=";
+        std::cout << "Please input a search term\n";
+        std::cin >> in;
+        publishing_term = in;
+        char* converted_term = const_cast<char*>(publishing_term.c_str());
+        searchURL = searchURL + in;
+        if (isLocationEnabled) {
+            std::cout << "Please input your location\n";
+            std::cin >> in;
+            myLocation = in;
+            searchURL = searchURL + "&location=" + in;
+        }
+        else {
+            std::cout << "Please input a latitude (ex 39.7029)\n";
+            std::cin >> in;
+            searchURL = searchURL + "&latitude=" + in;
+            std::cout << "Please input a longitude (ex 75.1118)\n";
+            std::cin >> in;
+            searchURL = searchURL + "&longitude=" + in;
+        }
+        do {
+            std::cout << "Please input the max amount of results you would like (Max 50)\n";
+            std::cin >> in;
+        } while (std::stoi(in) > 50);
 
-      if (writer->get_publication_matched_status(matches) != ::DDS::RETCODE_OK) {
-        ACE_ERROR_RETURN((LM_ERROR,
-                          ACE_TEXT("ERROR: %N:%l: main() -")
-                          ACE_TEXT(" get_publication_matched_status failed!\n")),
-                         -1);
-      }
+        resultsLimit = std::stoi(in);
+        searchURL = searchURL + "&limit=" + in;
+        std::cout << "Please input a suggested search radius (max is 40000)\n";
+        std::cin >> in;
+        //for debug
+        if (in == "0") { in = ""; }
+        searchURL = searchURL + "&radius=" + in;
 
-    } while (matches.current_count < 1);
+        Json::Reader jsonReader;
+        Json::Value jsonData;
 
-    ws->detach_condition(condition);
+        CURL* req = curl_easy_init();
+        if (req) {
+            curl_easy_setopt(req, CURLOPT_URL, searchURL.c_str());
+            struct curl_slist* headers = NULL;
+            headers = curl_slist_append(headers, "Content-Type: application/json");
+            headers = curl_slist_append(headers, "Authorization: Bearer 8uZBQKRUxpFZJG65jmtQCgCVwzsDjwYHi06qI1wvuPi1PCdKadGQKKcYhOpvl5ITMDHUScQHZ62xH19F9LB52UH0UJWQ_tFUqDyC88-PUjoT1nLRmGLHQ1t2t0lyYXYx");
+            curl_easy_setopt(req, CURLOPT_HTTPHEADER, headers);
+            curl_easy_setopt(req, CURLOPT_FOLLOWLOCATION, 1L);
+            curl_easy_setopt(req, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+            curl_easy_setopt(req, CURLOPT_TIMEOUT, 10);
+            curl_easy_setopt(req, CURLOPT_FOLLOWLOCATION, 1L);
 
-    json yelpJson = {
-        {"id", "k0AO8X3VzWe_F4lkMb0eSg"},
-        {"alias" , "the-cubby-hole-moorestown"},
-        {"name" , "The Cubby Hole"},
-        {"image_url" , "https://s3-media1.fl.yelpcdn.com/bphoto/-Lzsda0mHeGtRRZ0O5viyA/o.jpg"},
-        {"is_closed" , false},
-        {"url" , "https://www.yelp.com/biz/the-cubby-hole-moorestown?adjust_creative=xrwWeZAOZ3b80xo5ddg0Og&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=xrwWeZAOZ3b80xo5ddg0Og"},
-        {"review_count" , 194},
-        {"rating", "4.5"},
-        {"address1", "37 E Main St"},
-        {"city" , "Moorestown"},
-        {"zip_code" , "08057"},
-        {"country" , "US"},
-        {"state" , "NJ"},
-        {"distance", 10391.991289828224 },
-    };
+            // Response information.
+            long httpCode(0);
+            std::unique_ptr<std::string> httpData(new std::string());
+            curl_easy_setopt(req, CURLOPT_WRITEFUNCTION, callback);
+            curl_easy_setopt(req, CURLOPT_WRITEDATA, httpData.get());
+            curl_easy_perform(req);
+            curl_easy_getinfo(req, CURLINFO_RESPONSE_CODE, &httpCode);
+            curl_easy_cleanup(req);
 
-    std::string businessName = yelpJson.value("name", "oops");
-    const char* myBusinessName = businessName.c_str();
-    std::string BusinessRating = yelpJson.value("rating", "0");
-    const char* myBusinessRating = BusinessRating.c_str();
-    std::string BusinessAlias = yelpJson.value("alias", "oops");
-    const char* myBusinessAlias = BusinessAlias.c_str();
-    int reviewCount = yelpJson.value("review_count", 0);
-    std::string BusinessAddress1 = yelpJson.value("address1", "oops");
-    const char* myBusinessAddress1 = BusinessAddress1.c_str();
-    std::string BusinessCity = yelpJson.value("city", "oops");
-    const char* myBusinessCity = BusinessCity.c_str();
-    std::string BusinessZipCode = yelpJson.value("zip_code", "oops");
-    const char* myBusinessZipCode = BusinessZipCode.c_str();
-    std::string BusinessState = yelpJson.value("state", "oops");
-    const char* myBusinessState = BusinessState.c_str();
+            try {
 
+                if (jsonReader.parse(*httpData.get(), jsonData)) 
+                {
+                    std::cout << jsonData << std::endl;
+                }
 
-    // Write samples
-    Messenger::Message message;
-    message.subject_id = 99;
+                // Initialize DomainParticipantFactory
+                DDS::DomainParticipantFactory_var dpf =
+                    TheParticipantFactoryWithArgs(argc, argv);
 
-    message.Name       = myBusinessName;
-    message.rating = myBusinessRating;
-    message.subject    = CORBA::string_dup("OpenDDS Yelp API Testing Ideas");
-    message.address = myBusinessAddress1;
-    message.city = myBusinessCity;
-    message.zip = myBusinessZipCode;
-    message.state = myBusinessState;
-    message.count      = reviewCount;
+                // Create DomainParticipant
+                DDS::DomainParticipant_var participant =
+                    dpf->create_participant(42,
+                        PARTICIPANT_QOS_DEFAULT,
+                        DDS::DomainParticipantListener::_nil(),
+                        OpenDDS::DCPS::DEFAULT_STATUS_MASK);
 
-    for (int i = 0; i < 10; i++) {
-      DDS::ReturnCode_t error = message_writer->write(message, DDS::HANDLE_NIL);
+                if (CORBA::is_nil(participant.in())) {
+                    ACE_ERROR_RETURN((LM_ERROR,
+                        ACE_TEXT("ERROR: %N:%l: main() -")
+                        ACE_TEXT(" create_participant failed!\n")),
+                        -1);
+                }
 
-      if (error != DDS::RETCODE_OK) {
-        ACE_ERROR((LM_ERROR,
-                   ACE_TEXT("ERROR: %N:%l: main() -")
-                   ACE_TEXT(" write returned %d!\n"), error));
-      }
-    }
+                // Register TypeSupport (Messenger::Message)
+                Messenger::MessageTypeSupport_var ts =
+                    new Messenger::MessageTypeSupportImpl();
 
-    // Wait for samples to be acknowledged
-    if (message_writer->wait_for_acknowledgments(timeout) != DDS::RETCODE_OK) {
-      ACE_ERROR_RETURN((LM_ERROR,
+                if (ts->register_type(participant.in(), "") != DDS::RETCODE_OK) {
+                    ACE_ERROR_RETURN((LM_ERROR,
+                        ACE_TEXT("ERROR: %N:%l: main() -")
+                        ACE_TEXT(" register_type failed!\n")),
+                        -1);
+                }
+
+                // Create Topic (Movie Discussion List)
+                CORBA::String_var type_name = ts->get_type_name();
+                DDS::Topic_var topic =
+                    participant->create_topic(converted_term,
+                        type_name.in(),
+                        TOPIC_QOS_DEFAULT,
+                        DDS::TopicListener::_nil(),
+                        OpenDDS::DCPS::DEFAULT_STATUS_MASK);
+
+                if (CORBA::is_nil(topic.in())) {
+                    ACE_ERROR_RETURN((LM_ERROR,
+                        ACE_TEXT("ERROR: %N:%l: main() -")
+                        ACE_TEXT(" create_topic failed!\n")),
+                        -1);
+                }
+
+                // Create Publisher
+                DDS::Publisher_var publisher =
+                    participant->create_publisher(PUBLISHER_QOS_DEFAULT,
+                        DDS::PublisherListener::_nil(),
+                        OpenDDS::DCPS::DEFAULT_STATUS_MASK);
+
+                if (CORBA::is_nil(publisher.in())) {
+                    ACE_ERROR_RETURN((LM_ERROR,
+                        ACE_TEXT("ERROR: %N:%l: main() -")
+                        ACE_TEXT(" create_publisher failed!\n")),
+                        -1);
+                }
+
+                // Create DataWriter
+                DDS::DataWriter_var writer =
+                    publisher->create_datawriter(topic.in(),
+                        DATAWRITER_QOS_DEFAULT,
+                        DDS::DataWriterListener::_nil(),
+                        OpenDDS::DCPS::DEFAULT_STATUS_MASK);
+
+                if (CORBA::is_nil(writer.in())) {
+                    ACE_ERROR_RETURN((LM_ERROR,
+                        ACE_TEXT("ERROR: %N:%l: main() -")
+                        ACE_TEXT(" create_datawriter failed!\n")),
+                        -1);
+                }
+
+                Messenger::MessageDataWriter_var message_writer =
+                    Messenger::MessageDataWriter::_narrow(writer.in());
+
+                if (CORBA::is_nil(message_writer.in())) {
+                    ACE_ERROR_RETURN((LM_ERROR,
+                        ACE_TEXT("ERROR: %N:%l: main() -")
+                        ACE_TEXT(" _narrow failed!\n")),
+                        -1);
+                }
+
+                // Block until Subscriber is available
+                DDS::StatusCondition_var condition = writer->get_statuscondition();
+                condition->set_enabled_statuses(DDS::PUBLICATION_MATCHED_STATUS);
+
+                DDS::WaitSet_var ws = new DDS::WaitSet;
+                ws->attach_condition(condition);
+
+                DDS::ConditionSeq conditions;
+                DDS::PublicationMatchedStatus matches = { 0, 0, 0, 0, 0 };
+                DDS::Duration_t timeout = { 300, 0 };
+
+                do {
+                    if (ws->wait(conditions, timeout) != DDS::RETCODE_OK) {
+                        //ACE_ERROR_RETURN((LM_ERROR,
+                           // ACE_TEXT("ERROR: %N:%l: main() -")
+                            //ACE_TEXT(" wait failed!\n")),
+                            //-1);
+                        std::cout << "No subscribers online waiting for this after 30 seconds!" << std::endl;
+                    }
+
+                    if (writer->get_publication_matched_status(matches) != ::DDS::RETCODE_OK) {
+                        ACE_ERROR_RETURN((LM_ERROR,
+                            ACE_TEXT("ERROR: %N:%l: main() -")
+                            ACE_TEXT(" get_publication_matched_status failed!\n")),
+                            -1);
+                    }
+
+                } while (matches.current_count < 1);
+
+                ws->detach_condition(condition);
+
+                if (jsonReader.parse(*httpData.get(), jsonData)) {
+                    std::cout << jsonData << std::endl;
+                    resultsReturned = jsonData["total"].asInt();
+                    if (resultsLimit < resultsReturned) {
+                        resultsReturned = resultsLimit;
+                    }
+                    if (resultsReturned == 0) {
+                        std::cout << "No results were returned for that Location and Search Term!" << std::endl;
+                    }
+                    else {
+                        for (int i = 0; i < resultsReturned; i++) {
+                            myBusinessName = jsonData["businesses"][i]["name"].asCString();
+                            BusinessRating = jsonData["businesses"][i]["rating"].asFloat();
+                            //BusinessRating = round(BusinessRating * 100.0) / 100.0;
+                            reviewCount = jsonData["businesses"][i]["review_count"].asInt();
+                            myBusinessDistance = jsonData["businesses"][i]["distance"].asDouble();
+                            myBusinessDistance = myBusinessDistance / 1609.344;
+                            myBusinessDistance = round(myBusinessDistance * 10.0) / 10.0;
+                            myBusinessPhoneNumString = jsonData["businesses"][i]["display_phone"].asString();
+                            myBusinessAddress1 = jsonData["businesses"][i]["location"]["address1"].asCString();
+                            myBusinessCity = jsonData["businesses"][i]["location"]["city"].asCString();
+                            myBusinessState = jsonData["businesses"][i]["location"]["state"].asCString();
+                            myBusinessZipCode = jsonData["businesses"][i]["location"]["zip_code"].asCString();
+                            myBusinessIsOpen = !jsonData["businesses"][i]["is_closed"].asBool();
+                            const char* myBusinessIsOpenString;
+                            if (myBusinessIsOpen == true)
+                            {
+                                myBusinessIsOpenString = "Open";
+                            }
+                            else { myBusinessIsOpenString = "Closed"; }
+
+                            std::string BusinessRatingString = std::to_string(BusinessRating);
+                            const char* myBusinessRating = BusinessRatingString.c_str();
+                            std::string BusinessReviewCount = std::to_string(reviewCount);
+                            myBusinessReviewCount = BusinessReviewCount.c_str();
+                            std::string BusinessDistance = std::to_string(myBusinessDistance);
+                            const char* myBusinessDistanceString = BusinessDistance.c_str();
+
+                            Messenger::Message message;
+                            message.Name = myBusinessName;
+                            message.rating = BusinessRating;
+                            message.reviews = myBusinessReviewCount;
+                            message.distance = myBusinessDistance;
+                            message.address = myBusinessAddress1;
+                            message.city = myBusinessCity;
+                            message.zip = myBusinessZipCode;
+                            message.state = myBusinessState;
+                            message.count = reviewCount;
+                            message.isOpen = myBusinessIsOpenString;
+                            message.myLocation = myLocation.c_str();
+                            if (myBusinessPhoneNumString.empty())
+                            {
+                                message.phoneNum = "";
+                            }
+                            else {
+                                myBusinessPhoneNum = myBusinessPhoneNumString.c_str();
+                                std::string formattedString("      ");
+                                formattedString.append(myBusinessPhoneNum);
+                                formattedString.append("\n");
+                                message.phoneNum = formattedString.c_str();
+                                //message.phoneNum = strcat(myBusinessPhoneNum, "are ");
+                            }
+                            
+
+                            DDS::ReturnCode_t error = message_writer->write(message, DDS::HANDLE_NIL);
+
+                            if (error != DDS::RETCODE_OK) {
+                                ACE_ERROR((LM_ERROR,
+                                    ACE_TEXT("ERROR: %N:%l: main() -")
+                                    ACE_TEXT(" write returned %d!\n"), error));
+                            }
+                        }
+                        std::cout << "Your Messages were recieved and sent!" << std::endl;
+                    }
+                }
+
+                // Wait for samples to be acknowledged
+                if (message_writer->wait_for_acknowledgments(timeout) != DDS::RETCODE_OK) {
+                    ACE_ERROR_RETURN((LM_ERROR,
                         ACE_TEXT("ERROR: %N:%l: main() -")
                         ACE_TEXT(" wait_for_acknowledgments failed!\n")),
-                       -1);
-    }
+                        -1);
+                }
 
+            }
+            catch (const CORBA::Exception& e) {
+                e._tao_print_exception("Exception caught in main():");
+                return -1;
+            }
+
+            std::cout << "Submit another request? Enter yes/no" << std::endl;
+            std::cin >> answer;
+        }
+    } while (answer == "yes");
     // Clean-up!
-    participant->delete_contained_entities();
-    dpf->delete_participant(participant.in());
-
+    //participant->delete_contained_entities();
+    //dpf->delete_participant(participant.in());
     TheServiceParticipant->shutdown();
 
-  } catch (const CORBA::Exception& e) {
-    e._tao_print_exception("Exception caught in main():");
-    return -1;
-  }
-
-  return 0;
+    return 0;
 }

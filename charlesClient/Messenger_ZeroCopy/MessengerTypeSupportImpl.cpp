@@ -58,7 +58,7 @@ template<> const XTypes::TypeIdentifier & getMinimalTypeIdentifier<Messenger_Mes
   static XTypes::TypeIdentifier ti;
   ACE_GUARD_RETURN(ACE_Thread_Mutex, guard, TheServiceParticipant->get_static_xtypes_lock(), ti);
   if (ti.kind() == XTypes::TK_NONE) {
-    ti = XTypes::TypeIdentifier(XTypes::EK_MINIMAL,XTypes::EquivalenceHashWrapper(245, 239, 114, 163, 128, 19, 201, 157, 159, 44, 67, 226, 139, 83));
+    ti = XTypes::TypeIdentifier(XTypes::EK_MINIMAL,XTypes::EquivalenceHashWrapper(144, 204, 30, 69, 37, 246, 70, 22, 151, 147, 234, 253, 58, 9));
   }
   return ti;
 }
@@ -78,7 +78,7 @@ bool vread(OpenDDS::DCPS::ValueReader& value_reader,  ::Messenger::Message& valu
 {
   ACE_UNUSED_ARG(value_reader);
   ACE_UNUSED_ARG(value);
-  static const ListMemberHelper::Pair pairs[] = {{"Name",0},{"rating",1},{"subject",2},{"subject_id",3},{"address",4},{"city",5},{"state",6},{"zip",7},{"count",8},{0,0}};
+  static const ListMemberHelper::Pair pairs[] = {{"Name",0},{"rating",1},{"reviews",2},{"distance",3},{"subject",4},{"subject_id",5},{"address",6},{"city",7},{"state",8},{"zip",9},{"isOpen",10},{"myLocation",11},{"phoneNum",12},{"count",13},{0,0}};
   ListMemberHelper helper(pairs);
   if (!value_reader.begin_struct()) return false;
   XTypes::MemberId member_id;
@@ -93,14 +93,22 @@ bool vread(OpenDDS::DCPS::ValueReader& value_reader,  ::Messenger::Message& valu
       break;
     }
     case 1: {
-      {
-        String x;
-        if (!value_reader.read_string(x)) return false;
-        value.rating = x.c_str();
-      }
+      if (!value_reader.read_float32(value.rating)) return false;
       break;
     }
     case 2: {
+      {
+        String x;
+        if (!value_reader.read_string(x)) return false;
+        value.reviews = x.c_str();
+      }
+      break;
+    }
+    case 3: {
+      if (!value_reader.read_float32(value.distance)) return false;
+      break;
+    }
+    case 4: {
       {
         String x;
         if (!value_reader.read_string(x)) return false;
@@ -108,11 +116,11 @@ bool vread(OpenDDS::DCPS::ValueReader& value_reader,  ::Messenger::Message& valu
       }
       break;
     }
-    case 3: {
+    case 5: {
       if (!value_reader.read_int32(value.subject_id)) return false;
       break;
     }
-    case 4: {
+    case 6: {
       {
         String x;
         if (!value_reader.read_string(x)) return false;
@@ -120,7 +128,7 @@ bool vread(OpenDDS::DCPS::ValueReader& value_reader,  ::Messenger::Message& valu
       }
       break;
     }
-    case 5: {
+    case 7: {
       {
         String x;
         if (!value_reader.read_string(x)) return false;
@@ -128,7 +136,7 @@ bool vread(OpenDDS::DCPS::ValueReader& value_reader,  ::Messenger::Message& valu
       }
       break;
     }
-    case 6: {
+    case 8: {
       {
         String x;
         if (!value_reader.read_string(x)) return false;
@@ -136,7 +144,7 @@ bool vread(OpenDDS::DCPS::ValueReader& value_reader,  ::Messenger::Message& valu
       }
       break;
     }
-    case 7: {
+    case 9: {
       {
         String x;
         if (!value_reader.read_string(x)) return false;
@@ -144,7 +152,31 @@ bool vread(OpenDDS::DCPS::ValueReader& value_reader,  ::Messenger::Message& valu
       }
       break;
     }
-    case 8: {
+    case 10: {
+      {
+        String x;
+        if (!value_reader.read_string(x)) return false;
+        value.isOpen = x.c_str();
+      }
+      break;
+    }
+    case 11: {
+      {
+        String x;
+        if (!value_reader.read_string(x)) return false;
+        value.myLocation = x.c_str();
+      }
+      break;
+    }
+    case 12: {
+      {
+        String x;
+        if (!value_reader.read_string(x)) return false;
+        value.phoneNum = x.c_str();
+      }
+      break;
+    }
+    case 13: {
       if (!value_reader.read_int32(value.count)) return false;
       break;
     }
@@ -170,7 +202,13 @@ void vwrite(OpenDDS::DCPS::ValueWriter& value_writer, const  ::Messenger::Messag
   value_writer.write_string(value.Name);
   value_writer.end_struct_member();
   value_writer.begin_struct_member("rating");
-  value_writer.write_string(value.rating);
+  value_writer.write_float32(value.rating);
+  value_writer.end_struct_member();
+  value_writer.begin_struct_member("reviews");
+  value_writer.write_string(value.reviews);
+  value_writer.end_struct_member();
+  value_writer.begin_struct_member("distance");
+  value_writer.write_float32(value.distance);
   value_writer.end_struct_member();
   value_writer.begin_struct_member("subject");
   value_writer.write_string(value.subject);
@@ -190,6 +228,15 @@ void vwrite(OpenDDS::DCPS::ValueWriter& value_writer, const  ::Messenger::Messag
   value_writer.begin_struct_member("zip");
   value_writer.write_string(value.zip);
   value_writer.end_struct_member();
+  value_writer.begin_struct_member("isOpen");
+  value_writer.write_string(value.isOpen);
+  value_writer.end_struct_member();
+  value_writer.begin_struct_member("myLocation");
+  value_writer.write_string(value.myLocation);
+  value_writer.end_struct_member();
+  value_writer.begin_struct_member("phoneNum");
+  value_writer.write_string(value.phoneNum);
+  value_writer.end_struct_member();
   value_writer.begin_struct_member("count");
   value_writer.write_int32(value.count);
   value_writer.end_struct_member();
@@ -206,13 +253,18 @@ template<> void set_default( ::Messenger::Message& stru)
 {
   ACE_UNUSED_ARG(stru);
   stru.Name = "";
-  stru.rating = "";
+  stru.rating = 0;
+  stru.reviews = "";
+  stru.distance = 0;
   stru.subject = "";
   stru.subject_id = 0;
   stru.address = "";
   stru.city = "";
   stru.state = "";
   stru.zip = "";
+  stru.isOpen = "";
+  stru.myLocation = "";
+  stru.phoneNum = "";
   stru.count = 0;
 }
 
@@ -226,8 +278,10 @@ void serialized_size(const Encoding& encoding, size_t& size, const  ::Messenger:
   }
   primitive_serialized_size_ulong(encoding, size);
   size += ACE_OS::strlen(stru.Name.in()) + 1;
+  primitive_serialized_size(encoding, size, stru.rating);
   primitive_serialized_size_ulong(encoding, size);
-  size += ACE_OS::strlen(stru.rating.in()) + 1;
+  size += ACE_OS::strlen(stru.reviews.in()) + 1;
+  primitive_serialized_size(encoding, size, stru.distance);
   primitive_serialized_size_ulong(encoding, size);
   size += ACE_OS::strlen(stru.subject.in()) + 1;
   primitive_serialized_size(encoding, size, stru.subject_id);
@@ -239,6 +293,12 @@ void serialized_size(const Encoding& encoding, size_t& size, const  ::Messenger:
   size += ACE_OS::strlen(stru.state.in()) + 1;
   primitive_serialized_size_ulong(encoding, size);
   size += ACE_OS::strlen(stru.zip.in()) + 1;
+  primitive_serialized_size_ulong(encoding, size);
+  size += ACE_OS::strlen(stru.isOpen.in()) + 1;
+  primitive_serialized_size_ulong(encoding, size);
+  size += ACE_OS::strlen(stru.myLocation.in()) + 1;
+  primitive_serialized_size_ulong(encoding, size);
+  size += ACE_OS::strlen(stru.phoneNum.in()) + 1;
   primitive_serialized_size(encoding, size, stru.count);
 }
 
@@ -256,13 +316,18 @@ bool operator<<(Serializer& strm, const  ::Messenger::Message& stru)
     }
   }
   return (strm << stru.Name.in())
-    && (strm << stru.rating.in())
+    && (strm << stru.rating)
+    && (strm << stru.reviews.in())
+    && (strm << stru.distance)
     && (strm << stru.subject.in())
     && (strm << stru.subject_id)
     && (strm << stru.address.in())
     && (strm << stru.city.in())
     && (strm << stru.state.in())
     && (strm << stru.zip.in())
+    && (strm << stru.isOpen.in())
+    && (strm << stru.myLocation.in())
+    && (strm << stru.phoneNum.in())
     && (strm << stru.count);
 }
 
@@ -291,7 +356,21 @@ bool operator>>(Serializer& strm,  ::Messenger::Message& stru)
       strm.rpos() >= end_of_struct) {
     return true;
   }
-  if (!(strm >> stru.rating.out())) {
+  if (!(strm >> stru.rating)) {
+    return false;
+  }
+  if (encoding.xcdr_version() == Encoding::XCDR_VERSION_2 &&
+      strm.rpos() >= end_of_struct) {
+    return true;
+  }
+  if (!(strm >> stru.reviews.out())) {
+    return false;
+  }
+  if (encoding.xcdr_version() == Encoding::XCDR_VERSION_2 &&
+      strm.rpos() >= end_of_struct) {
+    return true;
+  }
+  if (!(strm >> stru.distance)) {
     return false;
   }
   if (encoding.xcdr_version() == Encoding::XCDR_VERSION_2 &&
@@ -334,6 +413,27 @@ bool operator>>(Serializer& strm,  ::Messenger::Message& stru)
     return true;
   }
   if (!(strm >> stru.zip.out())) {
+    return false;
+  }
+  if (encoding.xcdr_version() == Encoding::XCDR_VERSION_2 &&
+      strm.rpos() >= end_of_struct) {
+    return true;
+  }
+  if (!(strm >> stru.isOpen.out())) {
+    return false;
+  }
+  if (encoding.xcdr_version() == Encoding::XCDR_VERSION_2 &&
+      strm.rpos() >= end_of_struct) {
+    return true;
+  }
+  if (!(strm >> stru.myLocation.out())) {
+    return false;
+  }
+  if (encoding.xcdr_version() == Encoding::XCDR_VERSION_2 &&
+      strm.rpos() >= end_of_struct) {
+    return true;
+  }
+  if (!(strm >> stru.phoneNum.out())) {
     return false;
   }
   if (encoding.xcdr_version() == Encoding::XCDR_VERSION_2 &&
@@ -569,15 +669,20 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
     static const std::pair<std::string, ACE_CDR::ULong> name_to_id_pairs[] = {
       std::make_pair("Name", 0),
       std::make_pair("rating", 1),
-      std::make_pair("subject", 2),
-      std::make_pair("subject_id", 3),
-      std::make_pair("address", 4),
-      std::make_pair("city", 5),
-      std::make_pair("state", 6),
-      std::make_pair("zip", 7),
-      std::make_pair("count", 8),
+      std::make_pair("reviews", 2),
+      std::make_pair("distance", 3),
+      std::make_pair("subject", 4),
+      std::make_pair("subject_id", 5),
+      std::make_pair("address", 6),
+      std::make_pair("city", 7),
+      std::make_pair("state", 8),
+      std::make_pair("zip", 9),
+      std::make_pair("isOpen", 10),
+      std::make_pair("myLocation", 11),
+      std::make_pair("phoneNum", 12),
+      std::make_pair("count", 13),
     };
-    static const std::map<std::string, ACE_CDR::ULong> name_to_id_map(name_to_id_pairs, name_to_id_pairs + 9);
+    static const std::map<std::string, ACE_CDR::ULong> name_to_id_map(name_to_id_pairs, name_to_id_pairs + 14);
     std::map<std::string, ACE_CDR::ULong>::const_iterator it = name_to_id_map.find(field);
     if (it == name_to_id_map.end()) {
       throw std::runtime_error("Field " + OPENDDS_STRING(field) + " not found or its type is not supported (in struct ::Messenger::Message)");
@@ -594,7 +699,13 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
       return typed.Name.in();
     }
     if (std::strcmp(field, "rating") == 0) {
-      return typed.rating.in();
+      return typed.rating;
+    }
+    if (std::strcmp(field, "reviews") == 0) {
+      return typed.reviews.in();
+    }
+    if (std::strcmp(field, "distance") == 0) {
+      return typed.distance;
     }
     if (std::strcmp(field, "subject") == 0) {
       return typed.subject.in();
@@ -613,6 +724,15 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
     }
     if (std::strcmp(field, "zip") == 0) {
       return typed.zip.in();
+    }
+    if (std::strcmp(field, "isOpen") == 0) {
+      return typed.isOpen.in();
+    }
+    if (std::strcmp(field, "myLocation") == 0) {
+      return typed.myLocation.in();
+    }
+    if (std::strcmp(field, "phoneNum") == 0) {
+      return typed.phoneNum.in();
     }
     if (std::strcmp(field, "count") == 0) {
       return typed.count;
@@ -653,18 +773,40 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
       }
     }
     if (base_field == "rating") {
+      ACE_CDR::Float val;
+      if (!(strm >> val)) {
+        throw std::runtime_error("Field 'rating' could not be deserialized");
+      }
+      return val;
+    } else {
+      if (!strm.skip(1,  4 )) {
+        throw std::runtime_error("Field 'rating' could not be skipped");
+      }
+    }
+    if (base_field == "reviews") {
       TAO::String_Manager val;
       if (!(strm >> val.out())) {
-        throw std::runtime_error("Field 'rating' could not be deserialized");
+        throw std::runtime_error("Field 'reviews' could not be deserialized");
       }
       return val;
     } else {
       ACE_CDR::ULong len;
       if (!(strm >> len)) {
-        throw std::runtime_error("String 'rating' length could not be deserialized");
+        throw std::runtime_error("String 'reviews' length could not be deserialized");
       }
       if (!strm.skip(len)) {
-        throw std::runtime_error("String 'rating' contents could not be skipped");
+        throw std::runtime_error("String 'reviews' contents could not be skipped");
+      }
+    }
+    if (base_field == "distance") {
+      ACE_CDR::Float val;
+      if (!(strm >> val)) {
+        throw std::runtime_error("Field 'distance' could not be deserialized");
+      }
+      return val;
+    } else {
+      if (!strm.skip(1,  4 )) {
+        throw std::runtime_error("Field 'distance' could not be skipped");
       }
     }
     if (base_field == "subject") {
@@ -753,6 +895,51 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
         throw std::runtime_error("String 'zip' contents could not be skipped");
       }
     }
+    if (base_field == "isOpen") {
+      TAO::String_Manager val;
+      if (!(strm >> val.out())) {
+        throw std::runtime_error("Field 'isOpen' could not be deserialized");
+      }
+      return val;
+    } else {
+      ACE_CDR::ULong len;
+      if (!(strm >> len)) {
+        throw std::runtime_error("String 'isOpen' length could not be deserialized");
+      }
+      if (!strm.skip(len)) {
+        throw std::runtime_error("String 'isOpen' contents could not be skipped");
+      }
+    }
+    if (base_field == "myLocation") {
+      TAO::String_Manager val;
+      if (!(strm >> val.out())) {
+        throw std::runtime_error("Field 'myLocation' could not be deserialized");
+      }
+      return val;
+    } else {
+      ACE_CDR::ULong len;
+      if (!(strm >> len)) {
+        throw std::runtime_error("String 'myLocation' length could not be deserialized");
+      }
+      if (!strm.skip(len)) {
+        throw std::runtime_error("String 'myLocation' contents could not be skipped");
+      }
+    }
+    if (base_field == "phoneNum") {
+      TAO::String_Manager val;
+      if (!(strm >> val.out())) {
+        throw std::runtime_error("Field 'phoneNum' could not be deserialized");
+      }
+      return val;
+    } else {
+      ACE_CDR::ULong len;
+      if (!(strm >> len)) {
+        throw std::runtime_error("String 'phoneNum' length could not be deserialized");
+      }
+      if (!strm.skip(len)) {
+        throw std::runtime_error("String 'phoneNum' contents could not be skipped");
+      }
+    }
     if (base_field == "count") {
       ACE_CDR::Long val;
       if (!(strm >> val)) {
@@ -779,6 +966,12 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
     if (std::strcmp(field, "rating") == 0) {
       return make_field_cmp(&T::rating, next);
     }
+    if (std::strcmp(field, "reviews") == 0) {
+      return make_field_cmp(&T::reviews, next);
+    }
+    if (std::strcmp(field, "distance") == 0) {
+      return make_field_cmp(&T::distance, next);
+    }
     if (std::strcmp(field, "subject") == 0) {
       return make_field_cmp(&T::subject, next);
     }
@@ -797,6 +990,15 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
     if (std::strcmp(field, "zip") == 0) {
       return make_field_cmp(&T::zip, next);
     }
+    if (std::strcmp(field, "isOpen") == 0) {
+      return make_field_cmp(&T::isOpen, next);
+    }
+    if (std::strcmp(field, "myLocation") == 0) {
+      return make_field_cmp(&T::myLocation, next);
+    }
+    if (std::strcmp(field, "phoneNum") == 0) {
+      return make_field_cmp(&T::phoneNum, next);
+    }
     if (std::strcmp(field, "count") == 0) {
       return make_field_cmp(&T::count, next);
     }
@@ -806,7 +1008,7 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
 #ifndef OPENDDS_NO_MULTI_TOPIC
   const char** getFieldNames() const
   {
-    static const char* names[] = {"Name", "rating", "subject", "subject_id", "address", "city", "state", "zip", "count", 0};
+    static const char* names[] = {"Name", "rating", "reviews", "distance", "subject", "subject_id", "address", "city", "state", "zip", "isOpen", "myLocation", "phoneNum", "count", 0};
     return names;
   }
 
@@ -817,6 +1019,12 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
     }
     if (std::strcmp(field, "rating") == 0) {
       return &static_cast<const T*>(stru)->rating;
+    }
+    if (std::strcmp(field, "reviews") == 0) {
+      return &static_cast<const T*>(stru)->reviews;
+    }
+    if (std::strcmp(field, "distance") == 0) {
+      return &static_cast<const T*>(stru)->distance;
     }
     if (std::strcmp(field, "subject") == 0) {
       return &static_cast<const T*>(stru)->subject;
@@ -835,6 +1043,15 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
     }
     if (std::strcmp(field, "zip") == 0) {
       return &static_cast<const T*>(stru)->zip;
+    }
+    if (std::strcmp(field, "isOpen") == 0) {
+      return &static_cast<const T*>(stru)->isOpen;
+    }
+    if (std::strcmp(field, "myLocation") == 0) {
+      return &static_cast<const T*>(stru)->myLocation;
+    }
+    if (std::strcmp(field, "phoneNum") == 0) {
+      return &static_cast<const T*>(stru)->phoneNum;
     }
     if (std::strcmp(field, "count") == 0) {
       return &static_cast<const T*>(stru)->count;
@@ -855,7 +1072,15 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
       return;
     }
     if (std::strcmp(field, "rating") == 0) {
-      static_cast<T*>(lhs)->rating = *static_cast<const TAO::String_Manager*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      static_cast<T*>(lhs)->rating = *static_cast<const  ::CORBA::Float*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "reviews") == 0) {
+      static_cast<T*>(lhs)->reviews = *static_cast<const TAO::String_Manager*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "distance") == 0) {
+      static_cast<T*>(lhs)->distance = *static_cast<const  ::CORBA::Float*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
       return;
     }
     if (std::strcmp(field, "subject") == 0) {
@@ -882,6 +1107,18 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
       static_cast<T*>(lhs)->zip = *static_cast<const TAO::String_Manager*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
       return;
     }
+    if (std::strcmp(field, "isOpen") == 0) {
+      static_cast<T*>(lhs)->isOpen = *static_cast<const TAO::String_Manager*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "myLocation") == 0) {
+      static_cast<T*>(lhs)->myLocation = *static_cast<const TAO::String_Manager*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "phoneNum") == 0) {
+      static_cast<T*>(lhs)->phoneNum = *static_cast<const TAO::String_Manager*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
     if (std::strcmp(field, "count") == 0) {
       static_cast<T*>(lhs)->count = *static_cast<const  ::CORBA::Long*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
       return;
@@ -899,7 +1136,13 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
       return 0 == ACE_OS::strcmp(static_cast<const T*>(lhs)->Name.in(), static_cast<const T*>(rhs)->Name.in());
     }
     if (std::strcmp(field, "rating") == 0) {
-      return 0 == ACE_OS::strcmp(static_cast<const T*>(lhs)->rating.in(), static_cast<const T*>(rhs)->rating.in());
+      return static_cast<const T*>(lhs)->rating == static_cast<const T*>(rhs)->rating;
+    }
+    if (std::strcmp(field, "reviews") == 0) {
+      return 0 == ACE_OS::strcmp(static_cast<const T*>(lhs)->reviews.in(), static_cast<const T*>(rhs)->reviews.in());
+    }
+    if (std::strcmp(field, "distance") == 0) {
+      return static_cast<const T*>(lhs)->distance == static_cast<const T*>(rhs)->distance;
     }
     if (std::strcmp(field, "subject") == 0) {
       return 0 == ACE_OS::strcmp(static_cast<const T*>(lhs)->subject.in(), static_cast<const T*>(rhs)->subject.in());
@@ -918,6 +1161,15 @@ struct MetaStructImpl< ::Messenger::Message> : MetaStruct {
     }
     if (std::strcmp(field, "zip") == 0) {
       return 0 == ACE_OS::strcmp(static_cast<const T*>(lhs)->zip.in(), static_cast<const T*>(rhs)->zip.in());
+    }
+    if (std::strcmp(field, "isOpen") == 0) {
+      return 0 == ACE_OS::strcmp(static_cast<const T*>(lhs)->isOpen.in(), static_cast<const T*>(rhs)->isOpen.in());
+    }
+    if (std::strcmp(field, "myLocation") == 0) {
+      return 0 == ACE_OS::strcmp(static_cast<const T*>(lhs)->myLocation.in(), static_cast<const T*>(rhs)->myLocation.in());
+    }
+    if (std::strcmp(field, "phoneNum") == 0) {
+      return 0 == ACE_OS::strcmp(static_cast<const T*>(lhs)->phoneNum.in(), static_cast<const T*>(rhs)->phoneNum.in());
     }
     if (std::strcmp(field, "count") == 0) {
       return static_cast<const T*>(lhs)->count == static_cast<const T*>(rhs)->count;
@@ -954,12 +1206,12 @@ namespace OpenDDS { namespace DCPS {
 namespace {
 XTypes::TypeObject to0()
 {
-  return XTypes::TypeObject(XTypes::MinimalTypeObject(XTypes::MinimalStructType(XTypes::IS_APPENDABLE,XTypes::MinimalStructHeader(XTypes::TypeIdentifier(XTypes::TK_NONE), XTypes::MinimalTypeDetail()),XTypes::MinimalStructMemberSeq().append(XTypes::MinimalStructMember(XTypes::CommonStructMember(0,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(73, 238, 48, 135))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(1,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(44, 85, 4, 171))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(2,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(181, 227, 55, 78))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(3,XTypes::TRY_CONSTRUCT1 | XTypes::IS_KEY,XTypes::TypeIdentifier(XTypes::TK_INT32)),XTypes::MinimalMemberDetail(255, 171, 161, 209))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(4,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(136, 77, 152, 4))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(5,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(78, 213, 210, 234))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(6,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(158, 211, 158, 46))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(7,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(173, 205, 189, 121))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(8,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TK_INT32)),XTypes::MinimalMemberDetail(226, 148, 42, 4))))));
+  return XTypes::TypeObject(XTypes::MinimalTypeObject(XTypes::MinimalStructType(XTypes::IS_APPENDABLE,XTypes::MinimalStructHeader(XTypes::TypeIdentifier(XTypes::TK_NONE), XTypes::MinimalTypeDetail()),XTypes::MinimalStructMemberSeq().append(XTypes::MinimalStructMember(XTypes::CommonStructMember(0,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(73, 238, 48, 135))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(1,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TK_FLOAT32)),XTypes::MinimalMemberDetail(44, 85, 4, 171))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(2,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(116, 220, 177, 206))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(3,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TK_FLOAT32)),XTypes::MinimalMemberDetail(167, 78, 201, 197))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(4,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(181, 227, 55, 78))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(5,XTypes::TRY_CONSTRUCT1 | XTypes::IS_KEY,XTypes::TypeIdentifier(XTypes::TK_INT32)),XTypes::MinimalMemberDetail(255, 171, 161, 209))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(6,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(136, 77, 152, 4))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(7,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(78, 213, 210, 234))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(8,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(158, 211, 158, 46))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(9,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(173, 205, 189, 121))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(10,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(94, 116, 102, 163))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(11,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(97, 239, 213, 250))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(12,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TI_STRING8_SMALL,XTypes::StringSTypeDefn(0))),XTypes::MinimalMemberDetail(20, 46, 72, 110))).append(XTypes::MinimalStructMember(XTypes::CommonStructMember(13,XTypes::TRY_CONSTRUCT1,XTypes::TypeIdentifier(XTypes::TK_INT32)),XTypes::MinimalMemberDetail(226, 148, 42, 4))))));
 }
 XTypes::TypeMap get_minimal_type_map_private()
 {
   XTypes::TypeMap tm;
-  tm[XTypes::TypeIdentifier(XTypes::EK_MINIMAL,XTypes::EquivalenceHashWrapper(245, 239, 114, 163, 128, 19, 201, 157, 159, 44, 67, 226, 139, 83))] = to0();
+  tm[XTypes::TypeIdentifier(XTypes::EK_MINIMAL,XTypes::EquivalenceHashWrapper(144, 204, 30, 69, 37, 246, 70, 22, 151, 147, 234, 253, 58, 9))] = to0();
   return tm;
 }
 }
