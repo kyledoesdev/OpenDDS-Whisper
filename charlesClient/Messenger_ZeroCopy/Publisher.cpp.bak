@@ -69,7 +69,6 @@ int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
     std::string myLocation = "";
     std::string publishing_term = "";
     std::string location_type = "";
-    std::string formattedPhoneNumString;
 
     Json::Reader jsonReader;
     Json::Value jsonData;
@@ -131,7 +130,9 @@ int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
         } while (std::stoi(in) > 25);
 
         //for debug
-        if (in == "0") { in = ""; }
+        if (in == "0") {
+            in = "";
+        }
         else {
             //in = std::stod(in) * 1609.34;
         }
@@ -166,7 +167,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
 
                 if (jsonReader.parse(*httpData.get(), jsonData))
                 {
-                    //std::cout << jsonData << std::endl;
+                    std::cout << jsonData << std::endl;
                 }
 
                 // Initialize DomainParticipantFactory
@@ -320,22 +321,21 @@ int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
                             if (myBusinessPhoneNumString.empty()) {
                                 message.phoneNum = "";
                                 myBusinessPhoneNumString = "";
-                                formattedPhoneNumString = "";
                             }
                             else {
                                 myBusinessPhoneNum = myBusinessPhoneNumString.c_str();
-                                formattedPhoneNumString = "      ";
-                                formattedPhoneNumString.append(myBusinessPhoneNum);
-                                formattedPhoneNumString.append("\n");
-                                message.phoneNum = formattedPhoneNumString.c_str();
+                                std::string formattedString("      ");
+                                formattedString.append(myBusinessPhoneNum);
+                                formattedString.append("\n");
+                                message.phoneNum = formattedString.c_str();
                                 //message.phoneNum = strcat(myBusinessPhoneNum, "are ");
                             }
 
                             //display each business to publisher
-                            std::cout << myBusinessName << "  (" << myBusinessIsOpenString << ")" << std::endl
+                            std::cout << myBusinessName << "  (" << myBusinessIsOpen << ")" << std::endl
                                 << "      " << BusinessRating << " Stars" << std::endl
                                 << "      " << reviewCount << " Reviews" << std::endl
-                                << formattedPhoneNumString << ""
+                                << "      " << myBusinessPhoneNumString << "" << std::endl
                                 << "      " << myBusinessDistance << " Miles from " << myLocation << std::endl
                                 << "      " << myBusinessAddress1 << ", " << myBusinessCity << ", "
                                 << myBusinessState << " " << myBusinessZipCode << std::endl;
@@ -391,9 +391,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
             std::cin >> answer;
         }
     } while (answer == "yes");
-    // Clean-up!
-    //participant->delete_contained_entities();
-    //dpf->delete_participant(participant.in());
+
     TheServiceParticipant->shutdown();
 
     return 0;

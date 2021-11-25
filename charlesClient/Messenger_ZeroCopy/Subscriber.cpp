@@ -119,7 +119,7 @@ ACE_TMAIN(int argc, ACE_TCHAR* argv[])
 
         DDS::ConditionSeq conditions;
         DDS::SubscriptionMatchedStatus matches = { 0, 0, 0, 0, 0 };
-        DDS::Duration_t timeout = { 30, 0 }; // 30 seconds
+        DDS::Duration_t timeout = { 3000, 0 }; // 30 seconds
 
         do {
             if (ws->wait(conditions, timeout) != DDS::RETCODE_OK) {
