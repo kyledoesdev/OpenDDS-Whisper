@@ -59,9 +59,9 @@ int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
     int reviewCount = 0;
     int resultsReturned = 0;
     int resultsLimit = 0;
-
+    
     BOOLEAN myBusinessIsOpen = true;
-
+    
     std::string myBusinessPhoneNumString = "";
     std::string searchURL = "https://api.yelp.com/v3/businesses/search?term=";
     std::string in;
@@ -98,14 +98,13 @@ int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
             std::cout << "Would you like to search location by town or by lat/long? (Enter \"T\" for town or \"L\" for Lat/Long)" << std::endl;
             std::cin >> location_type;
         } while (location_type != "T" && location_type != "L");
-
+        
         if (location_type == "T") {
             std::cout << "Please input the name of your town\n";
             std::cin >> in;
             myLocation = in;
             searchURL = searchURL + "&location=" + in;
-        }
-        else {
+        } else {
             std::cout << "Please input a latitude (ex 39.7029)\n";
             std::cin >> in;
             searchURL = searchURL + "&latitude=" + in;
@@ -125,15 +124,14 @@ int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
 
         //prompt for radius search "0" for closest results or specify a custom range in miles
         do {
-            std::cout << "Please input a suggested search radius in miles (Max 25) or \"0\" for max results." << std::endl;
+            std::cout << "Please input a suggested search radius in miles (Max 25) or \"0\" for closest results." << std::endl;
             std::cin >> in;
         } while (std::stoi(in) > 25);
-
+        
         //for debug
-        if (in == "0") {
-            in = "";
-        }
-        else {
+        if (in == "0") { 
+            in = ""; 
+        } else {
             //in = std::stod(in) * 1609.34;
         }
         searchURL = searchURL + "&radius=" + in;
@@ -164,12 +162,6 @@ int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
 
             //start of OpenDDS Boilerplate given pub/sub
             try {
-
-                if (jsonReader.parse(*httpData.get(), jsonData))
-                {
-                    std::cout << jsonData << std::endl;
-                }
-
                 // Initialize DomainParticipantFactory
                 DDS::DomainParticipantFactory_var dpf =
                     TheParticipantFactoryWithArgs(argc, argv);
@@ -313,16 +305,14 @@ int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
                             const char* myBusinessIsOpenString;
                             if (myBusinessIsOpen == true) {
                                 myBusinessIsOpenString = "Open";
-                            }
-                            else {
-                                myBusinessIsOpenString = "Closed";
+                            } else { 
+                                myBusinessIsOpenString = "Closed"; 
                             }
 
                             if (myBusinessPhoneNumString.empty()) {
                                 message.phoneNum = "";
                                 myBusinessPhoneNumString = "";
-                            }
-                            else {
+                            } else {
                                 myBusinessPhoneNum = myBusinessPhoneNumString.c_str();
                                 std::string formattedString("      ");
                                 formattedString.append(myBusinessPhoneNum);
@@ -332,7 +322,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
                             }
 
                             //display each business to publisher
-                            std::cout << myBusinessName << "  (" << myBusinessIsOpen << ")" << std::endl
+                            std::cout << myBusinessName << "  (" << myBusinessIsOpenString << ")" << std::endl
                                 << "      " << BusinessRating << " Stars" << std::endl
                                 << "      " << reviewCount << " Reviews" << std::endl
                                 << "      " << myBusinessPhoneNumString << "" << std::endl
@@ -391,7 +381,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
             std::cin >> answer;
         }
     } while (answer == "yes");
-
+    
     TheServiceParticipant->shutdown();
 
     return 0;

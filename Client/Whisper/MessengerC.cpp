@@ -26,7 +26,7 @@
  **/
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_codegen.cpp:376
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_codegen.cpp:376
 
 
 #include "MessengerC.h"
@@ -37,7 +37,7 @@
 #endif /* !defined INLINE */
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_structure\cdr_op_cs.cpp:52
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_structure\cdr_op_cs.cpp:52
 
 TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 

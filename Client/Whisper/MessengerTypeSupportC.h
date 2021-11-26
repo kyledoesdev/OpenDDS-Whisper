@@ -26,10 +26,10 @@
  **/
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_codegen.cpp:152
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_codegen.cpp:152
 
-#ifndef _TAO_IDL_MESSENGERTYPESUPPORTC_20HBOC_H_
-#define _TAO_IDL_MESSENGERTYPESUPPORTC_20HBOC_H_
+#ifndef _TAO_IDL_MESSENGERTYPESUPPORTC_GGESEH_H_
+#define _TAO_IDL_MESSENGERTYPESUPPORTC_GGESEH_H_
 
 #include /**/ "ace/pre.h"
 
@@ -89,19 +89,19 @@ TAO_END_VERSIONED_NAMESPACE_DECL
 #define TAO_EXPORT_MACRO Messenger_ZeroCopy_Export
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_module\module_ch.cpp:38
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_module\module_ch.cpp:38
 
 namespace Messenger
 {
 
   // TAO_IDL - Generated from
-  // C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_sequence\sequence_ch.cpp:102
+  // S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_sequence\sequence_ch.cpp:102
 
   typedef ::TAO::DCPS::ZeroCopyDataSeq< Messenger::Message, DCPS_ZERO_COPY_SEQ_DEFAULT_SIZE> MessageSeq;
   
 
   // TAO_IDL - Generated from
-  // C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_interface.cpp:751
+  // S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_interface.cpp:751
 
 #if !defined (_MESSENGER_MESSAGETYPESUPPORT__VAR_OUT_CH_)
 #define _MESSENGER_MESSAGETYPESUPPORT__VAR_OUT_CH_
@@ -124,7 +124,7 @@ namespace Messenger
 #endif /* end #if !defined */
 
   // TAO_IDL - Generated from
-  // C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_interface\interface_ch.cpp:43
+  // S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_interface\interface_ch.cpp:43
 
   class Messenger_ZeroCopy_Export MessageTypeSupport
     : public virtual ::OpenDDS::DCPS::TypeSupport
@@ -133,7 +133,7 @@ namespace Messenger
   public:
 
     // TAO_IDL - Generated from
-    // C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_type.cpp:307
+    // S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_type.cpp:307
 
     typedef MessageTypeSupport_ptr _ptr_type;
     typedef MessageTypeSupport_var _var_type;
@@ -149,7 +149,7 @@ namespace Messenger
     static MessageTypeSupport_ptr _nil (void);
 
     // TAO_IDL - Generated from
-    // C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_interface\interface_ch.cpp:140
+    // S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_interface\interface_ch.cpp:140
 
     virtual ::CORBA::Boolean _is_a (const char *type_id);
     virtual const char* _interface_repository_id (void) const;
@@ -176,7 +176,7 @@ namespace Messenger
   };
 
   // TAO_IDL - Generated from
-  // C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_interface.cpp:751
+  // S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_interface.cpp:751
 
 #if !defined (_MESSENGER_MESSAGEDATAWRITER__VAR_OUT_CH_)
 #define _MESSENGER_MESSAGEDATAWRITER__VAR_OUT_CH_
@@ -199,7 +199,7 @@ namespace Messenger
 #endif /* end #if !defined */
 
   // TAO_IDL - Generated from
-  // C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_interface\interface_ch.cpp:43
+  // S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_interface\interface_ch.cpp:43
 
   class Messenger_ZeroCopy_Export MessageDataWriter
     : public virtual ::DDS::DataWriter
@@ -208,7 +208,7 @@ namespace Messenger
   public:
 
     // TAO_IDL - Generated from
-    // C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_type.cpp:307
+    // S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_type.cpp:307
 
     typedef MessageDataWriter_ptr _ptr_type;
     typedef MessageDataWriter_var _var_type;
@@ -265,7 +265,7 @@ namespace Messenger
       const ::Messenger::Message & instance_data) = 0;
 
     // TAO_IDL - Generated from
-    // C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_interface\interface_ch.cpp:140
+    // S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_interface\interface_ch.cpp:140
 
     virtual ::CORBA::Boolean _is_a (const char *type_id);
     virtual const char* _interface_repository_id (void) const;
@@ -292,7 +292,7 @@ namespace Messenger
   };
 
   // TAO_IDL - Generated from
-  // C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_interface.cpp:751
+  // S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_interface.cpp:751
 
 #if !defined (_MESSENGER_MESSAGEDATAREADER__VAR_OUT_CH_)
 #define _MESSENGER_MESSAGEDATAREADER__VAR_OUT_CH_
@@ -315,7 +315,7 @@ namespace Messenger
 #endif /* end #if !defined */
 
   // TAO_IDL - Generated from
-  // C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_interface\interface_ch.cpp:43
+  // S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_interface\interface_ch.cpp:43
 
   class Messenger_ZeroCopy_Export MessageDataReader
     : public virtual ::OpenDDS::DCPS::DataReaderEx
@@ -324,7 +324,7 @@ namespace Messenger
   public:
 
     // TAO_IDL - Generated from
-    // C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_type.cpp:307
+    // S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_type.cpp:307
 
     typedef MessageDataReader_ptr _ptr_type;
     typedef MessageDataReader_var _var_type;
@@ -451,7 +451,7 @@ namespace Messenger
       const ::Messenger::Message & instance_data) = 0;
 
     // TAO_IDL - Generated from
-    // C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_interface\interface_ch.cpp:140
+    // S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_interface\interface_ch.cpp:140
 
     virtual ::CORBA::Boolean _is_a (const char *type_id);
     virtual const char* _interface_repository_id (void) const;
@@ -478,12 +478,12 @@ namespace Messenger
   };
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_module\module_ch.cpp:67
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_module\module_ch.cpp:67
 
 } // module Messenger
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_arg_traits.cpp:68
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_arg_traits.cpp:68
 
 TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 
@@ -498,7 +498,7 @@ TAO_END_VERSIONED_NAMESPACE_DECL
 
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_traits.cpp:62
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_traits.cpp:62
 
 TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 
@@ -565,7 +565,7 @@ TAO_END_VERSIONED_NAMESPACE_DECL
 
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_codegen.cpp:1703
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_codegen.cpp:1703
 #if defined (__ACE_INLINE__)
 #include "MessengerTypeSupportC.inl"
 #endif /* defined INLINE */

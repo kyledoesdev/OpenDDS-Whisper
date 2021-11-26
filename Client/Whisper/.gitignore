@@ -1,0 +1,10 @@
+Debug/*
+*.log
+key.txt
+*.rar
+*.ior
+*.cpp.bak
+*.pl
+*.hpp
+*.pdb
+*.ilk

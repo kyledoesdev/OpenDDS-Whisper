@@ -27,10 +27,10 @@
 
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_codegen.cpp:652
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_codegen.cpp:652
 
-#ifndef _TAO_IDL_MESSENGERTYPESUPPORTS_B8QFIL_CPP_
-#define _TAO_IDL_MESSENGERTYPESUPPORTS_B8QFIL_CPP_
+#ifndef _TAO_IDL_MESSENGERTYPESUPPORTS_VPMR9A_CPP_
+#define _TAO_IDL_MESSENGERTYPESUPPORTS_VPMR9A_CPP_
 
 
 #include "MessengerTypeSupportS.h"

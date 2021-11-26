@@ -26,19 +26,24 @@
  **/
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_codegen.cpp:461
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_codegen.cpp:461
 
-#ifndef _TAO_IDL_MESSENGERS_8TDQJF_H_
-#define _TAO_IDL_MESSENGERS_8TDQJF_H_
+#ifndef _TAO_IDL_MESSENGERTYPESUPPORTS_CUVVNJ_H_
+#define _TAO_IDL_MESSENGERTYPESUPPORTS_CUVVNJ_H_
 
 #include /**/ "ace/pre.h"
 
-#include "MessengerC.h"
+#include "MessengerTypeSupportC.h"
+#include "MessengerS.h"
+#include "dds/DdsDcpsInfrastructureS.h"
+#include "dds/DdsDcpsPublicationS.h"
+#include "dds/DdsDcpsSubscriptionExtS.h"
+#include "dds/DdsDcpsTopicS.h"
+#include "dds/DdsDcpsTypeSupportExtS.h"
 #include "tao/PortableServer/Basic_SArguments.h"
 #include "tao/PortableServer/Special_Basic_SArguments.h"
 #include "tao/PortableServer/Fixed_Size_SArgument_T.h"
 #include "tao/PortableServer/Var_Size_SArgument_T.h"
-#include "tao/PortableServer/UB_String_SArguments.h"
 
 #if !defined (ACE_LACKS_PRAGMA_ONCE)
 # pragma once
@@ -46,7 +51,7 @@
 
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_arg_traits.cpp:68
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_arg_traits.cpp:68
 
 TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 
@@ -54,19 +59,6 @@ TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 // Arg traits specializations.
 namespace TAO
 {
-
-  // TAO_IDL - Generated from
-  // C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_arg_traits.cpp:947
-
-  template<>
-  class SArg_Traits< ::Messenger::Message>
-    : public
-        Var_Size_SArg_Traits_T<
-            ::Messenger::Message,
-            TAO::Any_Insert_Policy_Noop
-          >
-  {
-  };
 }
 
 TAO_END_VERSIONED_NAMESPACE_DECL
@@ -74,14 +66,14 @@ TAO_END_VERSIONED_NAMESPACE_DECL
 
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_module\module_sh.cpp:38
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_module\module_sh.cpp:38
 
 namespace POA_Messenger
 {
   
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_module\module_sh.cpp:69
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_module\module_sh.cpp:69
 
 } // module Messenger
 

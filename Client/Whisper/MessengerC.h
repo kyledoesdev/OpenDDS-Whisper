@@ -26,10 +26,10 @@
  **/
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_codegen.cpp:152
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_codegen.cpp:152
 
-#ifndef _TAO_IDL_MESSENGERC_NZ4TX8_H_
-#define _TAO_IDL_MESSENGERC_NZ4TX8_H_
+#ifndef _TAO_IDL_MESSENGERC_TQIGKM_H_
+#define _TAO_IDL_MESSENGERC_TQIGKM_H_
 
 #include /**/ "ace/pre.h"
 
@@ -75,13 +75,13 @@ TAO_END_VERSIONED_NAMESPACE_DECL
 #define TAO_EXPORT_MACRO Messenger_ZeroCopy_Export
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_module\module_ch.cpp:38
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_module\module_ch.cpp:38
 
 namespace Messenger
 {
 
   // TAO_IDL - Generated from
-  // C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_type.cpp:261
+  // S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_type.cpp:261
 
   struct Message;
 
@@ -98,13 +98,13 @@ namespace Messenger
     Message_out;
 
   // TAO_IDL - Generated from
-  // C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_structure\structure_ch.cpp:51
+  // S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_structure\structure_ch.cpp:51
 
   struct Messenger_ZeroCopy_Export Message
   {
 
     // TAO_IDL - Generated from
-    // C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_type.cpp:307
+    // S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_type.cpp:307
 
     
     typedef Message_var _var_type;
@@ -127,12 +127,12 @@ namespace Messenger
   };
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_module\module_ch.cpp:67
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_module\module_ch.cpp:67
 
 } // module Messenger
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_arg_traits.cpp:68
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_arg_traits.cpp:68
 
 TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 
@@ -142,7 +142,7 @@ namespace TAO
 {
 
   // TAO_IDL - Generated from
-  // C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_arg_traits.cpp:947
+  // S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_arg_traits.cpp:947
 
   template<>
   class Arg_Traits< ::Messenger::Message>
@@ -160,7 +160,7 @@ TAO_END_VERSIONED_NAMESPACE_DECL
 
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_traits.cpp:62
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_traits.cpp:62
 
 TAO_BEGIN_VERSIONED_NAMESPACE_DECL
 
@@ -173,7 +173,7 @@ TAO_END_VERSIONED_NAMESPACE_DECL
 
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_structure\cdr_op_ch.cpp:46
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_structure\cdr_op_ch.cpp:46
 
 
 TAO_BEGIN_VERSIONED_NAMESPACE_DECL
@@ -186,7 +186,7 @@ TAO_END_VERSIONED_NAMESPACE_DECL
 
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_codegen.cpp:1703
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_codegen.cpp:1703
 #if defined (__ACE_INLINE__)
 #include "MessengerC.inl"
 #endif /* defined INLINE */

@@ -26,7 +26,7 @@
  **/
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_codegen.cpp:376
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_codegen.cpp:376
 
 
 #include "MessengerTypeSupportC.h"
@@ -38,7 +38,7 @@
 #endif /* !defined INLINE */
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_interface\interface_cs.cpp:51
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_interface\interface_cs.cpp:51
 
 // Traits specializations for Messenger::MessageTypeSupport.
 
@@ -163,7 +163,7 @@ Messenger::MessageTypeSupport::marshal (TAO_OutputCDR & /* cdr */)
 }
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_interface\interface_cs.cpp:51
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_interface\interface_cs.cpp:51
 
 // Traits specializations for Messenger::MessageDataWriter.
 
@@ -288,7 +288,7 @@ Messenger::MessageDataWriter::marshal (TAO_OutputCDR & /* cdr */)
 }
 
 // TAO_IDL - Generated from
-// C:\Users\lilc1\dev\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_interface\interface_cs.cpp:51
+// S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_visitor_interface\interface_cs.cpp:51
 
 // Traits specializations for Messenger::MessageDataReader.
 
