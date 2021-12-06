@@ -1,3 +1,8 @@
+# Data-Distribution-Service-DDS
+RI:  Kevin Tooley       KTooley@asrcfederal.com 
+
+Students will develop a server application that feeds data, via an OpenDDS service, to multiple clients.  After receiving a DDS request from the clients, the server will fetch data from Yelp using the appropriate application program interface (API), package the data, and return it to the client via DDS.  The server application will utilize a command line interface (CLI) at a minimum, with the option to add a front-end graphical user interface (GUI).  The client will provide a GUI as the primary method of input with CLI permitted for testing and administration.  The team will gain knowledge and experience with JavaScript Object Notation (JSON), developing a data distribution service, and utilizing an API from a data factory.    
+
 # Whipser 
 ## An OpenDDS Prototype Application
 
