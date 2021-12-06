@@ -1,6 +1,5 @@
 Debug/*
 *.log
-key.txt
 *.rar
 *.ior
 *.cpp.bak
@@ -8,3 +7,7 @@ key.txt
 *.hpp
 *.pdb
 *.ilk
+*.inl
+*.vcxproj
+*.vcxproj.filters
+key.txt

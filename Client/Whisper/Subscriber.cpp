@@ -1,34 +1,34 @@
 /*
  *
+ * Whisper OpenDDS Prototype Application
  *
  * Distributed under the OpenDDS License.
  * See: http://www.opendds.org/license.html
+ *
+ * Editors: Kyle Evangelisto, Charles Evans
  */
 
 #include <ace/Log_Msg.h>
-
 #include <dds/DdsDcpsInfrastructureC.h>
 #include <dds/DdsDcpsSubscriptionC.h>
 #include <dds/DCPS/Marked_Default_Qos.h>
 #include <dds/DCPS/Service_Participant.h>
 #include <dds/DCPS/WaitSet.h>
-
 #include "dds/DCPS/StaticIncludes.h"
-
 #include "DataReaderListenerImpl.h"
 #include "MessengerTypeSupportImpl.h"
 
+using namespace std;
 
-int
-ACE_TMAIN(int argc, ACE_TCHAR* argv[])
-{
 
-    std::string subscribed_term = "";
+int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
 
-    std::cout << "What type of business would you like to listen to? (Example: Food)" << std::endl;
-    std::cin >> subscribed_term;
+    string subscribed_term = "";
+
+    cout << "What type of business would you like to listen to? (Example: Food, Burgers or Coffee)" << endl;
+    cin >> subscribed_term;
     char* converted_term = const_cast<char*>(subscribed_term.c_str());
-    std::cout << "Now listening for: " << subscribed_term << "!" << std::endl;
+    cout << "Now listening for: " << subscribed_term << "!" << endl;
 
     try {
         // Initialize DomainParticipantFactory
@@ -58,7 +58,7 @@ ACE_TMAIN(int argc, ACE_TCHAR* argv[])
                 ACE_TEXT(" register_type failed!\n")), -1);
         }
 
-        // Create Topic (Movie Discussion List)
+        // Create Topic (The term the subscriber has chosen to listen to) converted_term
         CORBA::String_var type_name = ts->get_type_name();
         DDS::Topic_var topic =
             participant->create_topic(converted_term,
@@ -119,7 +119,7 @@ ACE_TMAIN(int argc, ACE_TCHAR* argv[])
 
         DDS::ConditionSeq conditions;
         DDS::SubscriptionMatchedStatus matches = { 0, 0, 0, 0, 0 };
-        DDS::Duration_t timeout = { 300, 0 }; // 30 seconds
+        DDS::Duration_t timeout = { 300, 0 };
 
         do {
             if (ws->wait(conditions, timeout) != DDS::RETCODE_OK) {
@@ -136,10 +136,6 @@ ACE_TMAIN(int argc, ACE_TCHAR* argv[])
         } while (matches.current_count > 0);
 
         ws->detach_condition(condition);
-
-        // Clean-up!
-        //participant->delete_contained_entities();
-        //dpf->delete_participant(participant.in());
 
         TheServiceParticipant->shutdown();
 

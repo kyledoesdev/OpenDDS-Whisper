@@ -28,8 +28,8 @@
 // TAO_IDL - Generated from
 // S:\Code\OpenDDS-3.18.1\ace_wrappers\tao\TAO_IDL\be\be_codegen.cpp:461
 
-#ifndef _TAO_IDL_MESSENGERS_ZYGU9N_H_
-#define _TAO_IDL_MESSENGERS_ZYGU9N_H_
+#ifndef _TAO_IDL_MESSENGERS_CQKGUN_H_
+#define _TAO_IDL_MESSENGERS_CQKGUN_H_
 
 #include /**/ "ace/pre.h"
 

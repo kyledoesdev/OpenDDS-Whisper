@@ -1,8 +1,11 @@
 /*
  *
+ * Whisper OpenDDS Prototype Application 
  *
  * Distributed under the OpenDDS License.
  * See: http://www.opendds.org/license.html
+ * 
+ * Editors: Kyle Evangelisto, Charles Evans
  */
 
 #include <ace/Log_Msg.h>
@@ -12,7 +15,6 @@
 #include <dds/DCPS/Marked_Default_Qos.h>
 #include <dds/DCPS/Service_Participant.h>
 #include <dds/DCPS/WaitSet.h>
-
 #include "dds/DCPS/StaticIncludes.h"
 
 #include "MessengerTypeSupportImpl.h"
@@ -27,6 +29,7 @@
 #include "curl/curl.h"
 #include <json/json.h>
 
+//namespace callback for handling returned json requests
 namespace
 {
     std::size_t callback(
@@ -41,6 +44,7 @@ namespace
     }
 }
 
+using namespace std;
 
 int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
 
@@ -62,13 +66,13 @@ int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
     
     BOOLEAN myBusinessIsOpen = true;
     
-    std::string myBusinessPhoneNumString = "";
-    std::string searchURL = "https://api.yelp.com/v3/businesses/search?term=";
-    std::string in;
-    std::string answer = "";
-    std::string myLocation = "";
-    std::string publishing_term = "";
-    std::string location_type = "";
+    string myBusinessPhoneNumString = "";
+    string searchURL = "https://api.yelp.com/v3/businesses/search?term=";
+    string in;
+    string answer = "";
+    string myLocation = "";
+    string publishing_term = "";
+    string location_type = "";
 
     Json::Reader jsonReader;
     Json::Value jsonData;
@@ -78,16 +82,16 @@ int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
 
     //handle the API Key security
     stream.open("key.txt");
-    std::getline(stream, api_key);
+    getline(stream, api_key);
     api_key = "Authorization: Bearer " + api_key;
     const char* api_key_converted = api_key.c_str();
 
     //Master loop to allow for multiple publisher submissions
     do {
-        std::string searchURL = "https://api.yelp.com/v3/businesses/search?term=";
+        string searchURL = "https://api.yelp.com/v3/businesses/search?term=";
         //Prompt for search term
-        std::cout << "Please input a search term\n";
-        std::cin >> in;
+        cout << "Please input a search term\n";
+        cin >> in;
 
         publishing_term = in;
         char* converted_term = const_cast<char*>(publishing_term.c_str());
@@ -95,44 +99,45 @@ int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
 
         //Prompt for decision, Lat/Long or Town search
         do {
-            std::cout << "Would you like to search location by town or by lat/long? (Enter \"T\" for town or \"L\" for Lat/Long)" << std::endl;
-            std::cin >> location_type;
+            cout << "Would you like to search location by town or by lat/long? (Enter \"T\" for town or \"L\" for Lat/Long)" << endl;
+            cin >> location_type;
         } while (location_type != "T" && location_type != "L");
         
         if (location_type == "T") {
-            std::cout << "Please input the name of your town\n";
-            std::cin >> in;
+            cout << "Please input the name of your town\n";
+            cin >> in;
             myLocation = in;
             searchURL = searchURL + "&location=" + in;
         } else {
-            std::cout << "Please input a latitude (ex 39.7029)\n";
-            std::cin >> in;
+            cout << "Please input a latitude (ex 39.7029)\n";
+            cin >> in;
             searchURL = searchURL + "&latitude=" + in;
-            std::cout << "Please input a longitude (ex 75.1118)\n";
-            std::cin >> in;
+            cout << "Please input a longitude (ex 75.1118)\n";
+            cin >> in;
             searchURL = searchURL + "&longitude=" + in;
         }
 
         //prompt for quantity count
         do {
-            std::cout << "Please input the max amount of results you would like (Max 50)\n";
-            std::cin >> in;
-        } while (std::stoi(in) > 50);
+            cout << "Please input the max amount of results you would like (Max 50)\n";
+            cin >> in;
+        } while (stoi(in) > 50);
 
-        resultsLimit = std::stoi(in);
+        resultsLimit = stoi(in);
         searchURL = searchURL + "&limit=" + in;
 
         //prompt for radius search "0" for closest results or specify a custom range in miles
         do {
-            std::cout << "Please input a suggested search radius in miles (Max 25) or \"0\" for closest results." << std::endl;
-            std::cin >> in;
-        } while (std::stoi(in) > 25);
+            cout << "Please input a suggested search radius in miles (Max 25) or \"0\" for closest results." << endl;
+            cin >> in;
+        } while (stoi(in) > 25);
         
-        //for debug
-        if (in == "0") { 
+        if (in == "0") {
+            //dont pass a radius param and get the closest to the lat/long or town
             in = ""; 
         } else {
-            //in = std::stod(in) * 1609.34;
+            //convert to meters as radius
+            in = stod(in) * 1609.34;
         }
         searchURL = searchURL + "&radius=" + in;
 
@@ -153,7 +158,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
 
             // Response information.
             long httpCode(0);
-            std::unique_ptr<std::string> httpData(new std::string());
+            unique_ptr<string> httpData(new string());
             curl_easy_setopt(req, CURLOPT_WRITEFUNCTION, callback);
             curl_easy_setopt(req, CURLOPT_WRITEDATA, httpData.get());
             curl_easy_perform(req);
@@ -191,7 +196,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
                         -1);
                 }
 
-                // Create Topic (Movie Discussion List)
+                // Create Topic (Search Term) converted_term
                 CORBA::String_var type_name = ts->get_type_name();
                 DDS::Topic_var topic =
                     participant->create_topic(converted_term,
@@ -257,11 +262,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
 
                 do {
                     if (ws->wait(conditions, timeout) != DDS::RETCODE_OK) {
-                        //ACE_ERROR_RETURN((LM_ERROR,
-                           // ACE_TEXT("ERROR: %N:%l: main() -")
-                            //ACE_TEXT(" wait failed!\n")),
-                            //-1);
-                        std::cout << "No subscribers online waiting for this after the timeout!" << std::endl;
+                        cout << "No subscribers online waiting for this after the timeout!" << std::endl;
                     }
 
                     if (writer->get_publication_matched_status(matches) != ::DDS::RETCODE_OK) {
@@ -275,18 +276,19 @@ int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
 
                 ws->detach_condition(condition);
 
+                //parse returned JSON
                 if (jsonReader.parse(*httpData.get(), jsonData)) {
                     resultsReturned = jsonData["total"].asInt();
                     if (resultsLimit < resultsReturned) {
                         resultsReturned = resultsLimit;
                     }
                     if (resultsReturned == 0) {
-                        std::cout << "No results were returned for that Location and Search Term!" << std::endl;
-                    }
-                    else {
+                        cout << "No results were returned for that Location and Search Term!" << std::endl;
+                    } else {
                         for (int i = 0; i < resultsReturned; i++) {
                             //messenger message (IDL)
                             Messenger::Message message;
+
                             //Parse json fields into strings
                             myBusinessName = jsonData["businesses"][i]["name"].asCString();
                             BusinessRating = jsonData["businesses"][i]["rating"].asFloat();
@@ -314,21 +316,20 @@ int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
                                 myBusinessPhoneNumString = "";
                             } else {
                                 myBusinessPhoneNum = myBusinessPhoneNumString.c_str();
-                                std::string formattedString("      ");
+                                string formattedString("      ");
                                 formattedString.append(myBusinessPhoneNum);
                                 formattedString.append("\n");
                                 message.phoneNum = formattedString.c_str();
-                                //message.phoneNum = strcat(myBusinessPhoneNum, "are ");
                             }
 
                             //display each business to publisher
-                            std::cout << myBusinessName << "  (" << myBusinessIsOpenString << ")" << std::endl
-                                << "      " << BusinessRating << " Stars" << std::endl
-                                << "      " << reviewCount << " Reviews" << std::endl
-                                << "      " << myBusinessPhoneNumString << "" << std::endl
-                                << "      " << myBusinessDistance << " Miles from " << myLocation << std::endl
-                                << "      " << myBusinessAddress1 << ", " << myBusinessCity << ", "
-                                << myBusinessState << " " << myBusinessZipCode << std::endl;
+                            std::cout << myBusinessName << "  (" << myBusinessIsOpenString << ")" << endl
+                                << "\t" << BusinessRating << " Stars" << endl
+                                << "\t" << reviewCount << " Reviews" << endl
+                                << "\t" << myBusinessPhoneNumString << "" << endl
+                                << "\t" << myBusinessDistance << " Miles from " << myLocation << endl
+                                << "\t" << myBusinessAddress1 << ", " << myBusinessCity << ", "
+                                << myBusinessState << " " << myBusinessZipCode << endl;
 
                             //string conversions for IDL
                             std::string BusinessRatingString = std::to_string(BusinessRating);
@@ -377,8 +378,8 @@ int ACE_TMAIN(int argc, ACE_TCHAR* argv[]) {
                 return -1;
             }
 
-            std::cout << "Submit another request? Enter yes/no" << std::endl;
-            std::cin >> answer;
+            cout << "Submit another request? Enter yes/no" << endl;
+            cin >> answer;
         }
     } while (answer == "yes");
     
