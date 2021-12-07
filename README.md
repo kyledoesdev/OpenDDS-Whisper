@@ -80,4 +80,5 @@ You should now be able to test the application by running
 
 > subscriber.bat
 
-# See the (Coming Soon) video on a successful instalation
+# See the video below on a successful instalation
+[Link to youtube video](https://www.youtube.com/watch?v=U47jY-IYkIc)
