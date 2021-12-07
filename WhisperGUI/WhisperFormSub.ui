@@ -13,7 +13,7 @@
     <x>0</x>
     <y>0</y>
     <width>203</width>
-    <height>319</height>
+    <height>330</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -92,31 +92,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="businessCombo">
-         <property name="font">
-          <font>
-           <family>Sans Serif</family>
-           <pointsize>9</pointsize>
-           <stylestrategy>PreferAntialias</stylestrategy>
-           <kerning>false</kerning>
-          </font>
-         </property>
-         <item>
-          <property name="text">
-           <string>Coffee Shop</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Restaurant</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Gas Station</string>
-          </property>
-         </item>
-        </widget>
+        <widget class="QLineEdit" name="subTopic"/>
        </item>
       </layout>
      </item>
@@ -197,6 +173,19 @@ p, li { white-space: pre-wrap; }
      <width>171</width>
      <height>131</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="clearButton">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>300</y>
+     <width>80</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Clear Results</string>
    </property>
   </widget>
  </widget>

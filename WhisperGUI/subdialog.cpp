@@ -19,9 +19,9 @@ SubDialog::~SubDialog()
 
 void SubDialog::on_createReaderButton_clicked()
 {
-    std::string businessType = ui->businessCombo->currentText().toStdString();
-    std::string text = "Subscribed to ";
-    text += businessType;
+    std::string businessType = ui->subTopic->displayText().toStdString();
+    std::string text = "Now listening for: ";
+    text += businessType + "!";
 
 
     QString qstr = QString::fromStdString(text);
@@ -38,5 +38,11 @@ void SubDialog::on_subQosButton_clicked()
 void SubDialog::on_filterButton_clicked()
 {
     (new FilterDialog) -> show();
+}
+
+
+void SubDialog::on_clearButton_clicked()
+{
+    ui->subTextBrowser->setText("");
 }
 
