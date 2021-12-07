@@ -26,19 +26,28 @@ how to configure the app for that specific OS.
   - Launch a developer command line
 > cd /d <i>DDS_ROOT</i>
 
+Next run configure.cmd
+
 > configure
 
 This may take a moment
 
+If running configure.cmd fails, you may have Strawberry Perl not properly added to your path. Double check this.
+If it is added to your Path try restarting your machine if you just installed Strawberry Perl.
+Otherwise, try re-installing it.
+
+Next we will build the solution
+
 > devenv DDS_TAO.sln
 
 Another Visual Studios IDE will open.
+Navigate to
 
 > Build -> Build Solution
 
 <B>This will take a little while</B>
 This also occasionaly fails on building.
-If it does, the best thing I've found to do is to repeat the entire sequence over again
+If it does, try building it again, if it still fails the best thing I've found to do is to repeat the entire sequence over again
 
 If the build is succesful, go back to you command line instance. 
 
@@ -56,13 +65,13 @@ If this test runs succesfully, then OpenDDS has been configured succesfully.
 
 ## Now for configuring the Whisper Prototype
 * If you haven't already, clone this repo.
-* Copy the Client Folder into <i>DDS_ROOT</i>/DevGuideExamples/DCPS/
+* Copy and paste the <B>FILES</B> from the Client Folder into <i>DDS_ROOT</i>/DevGuideExamples/DCPS/Messenger_ZeroCopy
 * In a visual studios command line (explained how to access earlier)
-* cd /d <i>DDS_ROOT</i>\DevGuideExamples\DCPS\Client
+* cd /d <i>DDS_ROOT</i>\DevGuideExamples\DCPS\Messenger_ZeroCopy
 * create a file named key.txt
-* Paste your Yelp Fusion API Key into that file.
+* Paste your Yelp Fusion API Key into that file with no spaces or sybmols before or after pasting, just the key that was given to you.
 
-## The project should be built properly but you may need to manually set libcurl as a project dependency. (Reference above)
+## The project should be built already so all you need to run is:
 
 You should now be able to test the application by running
 > server.bat
