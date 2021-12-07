@@ -1,5 +1,6 @@
 Debug/*
 *.log
+*.exp
 *.rar
 *.ior
 *.cpp.bak
@@ -10,4 +11,5 @@ Debug/*
 *.inl
 *.vcxproj
 *.vcxproj.filters
+*.vcxproj.user
 key.txt
