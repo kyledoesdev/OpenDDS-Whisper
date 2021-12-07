@@ -16,14 +16,13 @@ PubDialog::~PubDialog()
 void PubDialog::on_createWriterButton_clicked()
 {
     int numResults = ui->numResults->value();
-    std::string businessType = ui->businessList->currentText().toStdString();
-
+    std::string businessType = ui->pubTopic->displayText().toStdString();
     std::string text = "Published ";
     text += std::to_string(numResults) + " place";
     if(numResults != 1)
         text += "s";
 
-    text += " of type " + ui->businessList->currentText().toStdString();
+    text += " of type " + businessType;
 
     QString qstr = QString::fromStdString(text);
 

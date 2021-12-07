@@ -12,8 +12,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>251</width>
-    <height>343</height>
+    <width>266</width>
+    <height>378</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -52,7 +52,7 @@
      <x>10</x>
      <y>10</y>
      <width>241</width>
-     <height>201</height>
+     <height>271</height>
     </rect>
    </property>
    <property name="font">
@@ -72,7 +72,7 @@
       <x>10</x>
       <y>10</y>
       <width>211</width>
-      <height>181</height>
+      <height>250</height>
      </rect>
     </property>
     <property name="font">
@@ -153,30 +153,10 @@
           <number>3</number>
          </property>
          <item>
-          <widget class="QComboBox" name="businessList">
-           <property name="font">
-            <font>
-             <family>Sans Serif</family>
-             <pointsize>9</pointsize>
-             <stylestrategy>PreferAntialias</stylestrategy>
-             <kerning>false</kerning>
-            </font>
+          <widget class="QLineEdit" name="pubTopic">
+           <property name="text">
+            <string/>
            </property>
-           <item>
-            <property name="text">
-             <string>Coffee Shop</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Restaurant</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Gas Station</string>
-            </property>
-           </item>
           </widget>
          </item>
          <item>
@@ -221,11 +201,38 @@
            <property name="minimum">
             <number>1</number>
            </property>
+           <property name="maximum">
+            <number>50</number>
+           </property>
           </widget>
          </item>
         </layout>
        </item>
       </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QRadioButton" name="longLat">
+         <property name="text">
+          <string>(Longitude, Latitude)</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="cityButton">
+         <property name="text">
+          <string>City</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="location"/>
      </item>
      <item>
       <widget class="QPushButton" name="pubQosButton">
@@ -295,10 +302,10 @@ p, li { white-space: pre-wrap; }
   <widget class="QTextBrowser" name="pubTextBrowser">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>220</y>
-     <width>161</width>
-     <height>121</height>
+     <x>10</x>
+     <y>320</y>
+     <width>241</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="readOnly">

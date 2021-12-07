@@ -24,6 +24,8 @@ private slots:
 
     void on_subQosButton_clicked();
 
+    void on_clearButton_clicked();
+
 private:
     Ui::SubDialog *ui;
     ReaderQos *ssubQos;
